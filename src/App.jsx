@@ -1,5 +1,4 @@
 
-
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -10,6 +9,9 @@ import WhatWeDo from "./components/WhatWeDo";
 import Services from "./components/Services";
 import Experts from "./components/Experts";
 import Footer from "./components/Footer";
+import FAQ from "./components/FAQ";
+import CompanyInsights from "./components/CompanyInsights";
+
 
 
 const Home = () => {
@@ -18,7 +20,7 @@ const Home = () => {
       <Hero />
       <Portfolio />
       <WhatWeDo />
-  
+  <FAQ />
     </>
   );
 };
@@ -34,7 +36,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<Services />} />
         <Route path="/experts" element={<Experts />} />
-        
+        <Route path="/insights" element={<CompanyInsights />} />
       </Routes>
       <Footer />
     </BrowserRouter>
