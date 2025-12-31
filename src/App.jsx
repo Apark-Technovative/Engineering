@@ -11,6 +11,7 @@ import Experts from "./components/Experts";
 import Footer from "./components/Footer";
 import FAQ from "./components/FAQ";
 import CompanyInsights from "./components/CompanyInsights";
+import Contact from "./components/Contact";
 
 
 
@@ -37,6 +38,7 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/experts" element={<Experts />} />
         <Route path="/insights" element={<CompanyInsights />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
     </BrowserRouter>
