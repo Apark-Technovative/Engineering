@@ -35,33 +35,27 @@ export default function Contact() {
     setSubmitted(false);
   };
 
-  const handleSubmit = (e) => {
-
-    try {
-      const res = axios.post("http://localhost:4000/contact")
-      console.log(res);
-
-      setFormData(res.data)
-    } catch (error) {
-      console.error(error)
-    }
-
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
     if (formData.name.trim().length < 3) {
       setNameError("Name must be at least 3 characters long");
       return;
     }
 
-
     setSending(true);
 
+    try {
+      const res = await axios.post("http://localhost:4000/contact", formData);
+      console.log(res);
 
-    setTimeout(() => {
-      console.log(formData);
       setSending(false);
       setSubmitted(true);
       setFormData({ name: "", email: "", message: "" });
-    }, 1500);
+    } catch (error) {
+      console.error(error);
+      setSending(false);
+    }
   };
 
   return (
@@ -191,7 +185,6 @@ export default function Contact() {
                 justifyContent: "center",
                 gap: "10px",
               }}
-              onClick={handleSubmit}
             >
               {sending ? "Sending..." : "Send Message"}
               {!sending && <FaArrowRight />}
