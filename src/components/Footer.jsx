@@ -1,21 +1,20 @@
 import React from "react";
 import { AiOutlinePhone, AiOutlineMail } from "react-icons/ai";
+import { Link } from "react-router-dom"; // import Link
 
 const Footer = () => {
   return (
-    <footer
-      className="w-full bg-[#f7f9fb] text-[#1f2937] mt-32"
-      style={{ fontFamily: "'Poppins', sans-serif" }}
-    >
+    <footer className="w-full bg-[#f7f9fb] text-[#1f2937] mt-32">
       <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-3 gap-12">
+        
         {/* About Company */}
         <div>
           <h3 className="text-[16px] font-semibold mb-6">About Company</h3>
           <p className="text-[14px] leading-7 text-gray-700">
-            Kripa Engineering Associates Pvt. Ltd., established in May 2018, is a reputable
-            name in property appraisal, surveying, and property consultancy. Dedicated to
-            excellence and delivering quality services, it has earned a commendable
-            reputation in the industry.
+            Kripa Engineering Associates Pvt. Ltd., established in May 2018, is a
+            reputable name in property appraisal, surveying, and property consultancy.
+            Dedicated to excellence and delivering quality services, it has earned a
+            commendable reputation in the industry.
           </p>
         </div>
 
@@ -23,12 +22,33 @@ const Footer = () => {
         <div>
           <h3 className="text-[16px] font-semibold mb-6">Our Company</h3>
           <ul className="space-y-3 text-[14px] text-gray-700">
-            <li>Our Services</li>
-            <li>Our Experts</li>
-            <li>Company Insights</li>
-            <li>Contact Us</li>
-            <li>Get A Quote</li>
-          </ul>
+  <li>
+    <Link to="/services" className="hover:text-orange-500 transition">
+      Our Services
+    </Link>
+  </li>
+  <li>
+    <Link to="/experts" className="hover:text-orange-500 transition">
+      Our Experts
+    </Link>
+  </li>
+  <li>
+    <Link to="/insights" className="hover:text-orange-500 transition">
+      Company Insights
+    </Link>
+  </li>
+  <li>
+    <Link to="/contact" className="hover:text-orange-500 transition">
+      Contact Us
+    </Link>
+  </li>
+  <li>
+    <Link to="/careers" className="hover:text-orange-500 transition">
+      Careers
+    </Link>
+  </li>
+</ul>
+
         </div>
 
         {/* Contact Info */}

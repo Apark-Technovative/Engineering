@@ -1,4 +1,3 @@
-
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -12,8 +11,9 @@ import Footer from "./components/Footer";
 import FAQ from "./components/FAQ";
 import CompanyInsights from "./components/CompanyInsights";
 import Contact from "./components/Contact";
-
-
+import Client from "./components/Clients";
+import Careers from "./components/Careers";
+import ScrollToTop from "./components/ScrollToTop";
 
 const Home = () => {
   return (
@@ -21,7 +21,8 @@ const Home = () => {
       <Hero />
       <Portfolio />
       <WhatWeDo />
-  <FAQ />
+      <Client />
+      <FAQ />
     </>
   );
 };
@@ -29,17 +30,18 @@ const Home = () => {
 function App() {
   return (
     <BrowserRouter>
-      
+    <ScrollToTop />
       <Navbar />
 
-      {/* Page Routes */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<Services />} />
         <Route path="/experts" element={<Experts />} />
         <Route path="/insights" element={<CompanyInsights />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/careers" element={<Careers />} />
       </Routes>
+
       <Footer />
     </BrowserRouter>
   );
