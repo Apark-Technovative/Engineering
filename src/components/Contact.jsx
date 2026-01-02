@@ -1,4 +1,5 @@
 
+import axios from "axios";
 import { useState } from "react";
 import {
   FaPhoneAlt,
@@ -22,7 +23,7 @@ export default function Contact() {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-   
+
     if (e.target.name === "name") {
       if (e.target.value.trim().length < 3) {
         setNameError("Name must be at least 3 characters long");
@@ -35,18 +36,26 @@ export default function Contact() {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
 
-    
+    try {
+      const res = axios.post("http://localhost:4000/contact")
+      console.log(res);
+
+      setFormData(res.data)
+    } catch (error) {
+      console.error(error)
+    }
+
+
     if (formData.name.trim().length < 3) {
       setNameError("Name must be at least 3 characters long");
       return;
     }
 
-    
+
     setSending(true);
 
-    
+
     setTimeout(() => {
       console.log(formData);
       setSending(false);
@@ -58,7 +67,7 @@ export default function Contact() {
   return (
     <div className="bg-[#eef3f7] py-14">
       <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12">
-       
+
         <div>
           <h2 className="text-3xl font-bold text-gray-900 mb-8">
             Contact Us
@@ -105,7 +114,7 @@ export default function Contact() {
           </div>
         </div>
 
-       
+
         <div className="bg-white rounded-xl shadow-md p-8">
           <h3 className="text-2xl font-bold mb-2">
             Let's Discuss  About Your Space
@@ -115,7 +124,7 @@ export default function Contact() {
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-5">
-          
+
             <div>
               <label className="block font-medium mb-1">
                 Name <span className="text-red-500">*</span>
@@ -134,7 +143,7 @@ export default function Contact() {
               )}
             </div>
 
-            
+
             <div>
               <label className="block font-medium mb-1">
                 Email <span className="text-red-500">*</span>
@@ -150,7 +159,7 @@ export default function Contact() {
               />
             </div>
 
-            
+
             <div>
               <label className="block font-medium mb-1">
                 Message <span className="text-red-500">*</span>
@@ -166,7 +175,7 @@ export default function Contact() {
               />
             </div>
 
-            
+
             <button
               type="submit"
               disabled={sending}
@@ -182,22 +191,23 @@ export default function Contact() {
                 justifyContent: "center",
                 gap: "10px",
               }}
+              onClick={handleSubmit}
             >
               {sending ? "Sending..." : "Send Message"}
               {!sending && <FaArrowRight />}
             </button>
 
-            
+
             {submitted && !sending && (
               <p className="mt-3 text-green-600 text-center font-medium">
-                 Message sent successfully!
+                Message sent successfully!
               </p>
             )}
           </form>
         </div>
       </div>
 
-      
+
       <div className="max-w-6xl mx-auto px-6 mt-16">
         <h3 className="text-2xl font-bold mb-4">Find Us on Map</h3>
         <div className="w-full h-[350px] rounded-xl overflow-hidden shadow-md">
@@ -206,7 +216,7 @@ export default function Contact() {
             src="https://www.google.com/maps?q=Kripa%20Engineering%20Associates%20Pvt.%20Ltd,%20Kathmandu&output=embed"
             className="w-full h-full border-0"
             loading="lazy"
-            
+
           ></iframe>
         </div>
       </div>
