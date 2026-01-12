@@ -90,7 +90,7 @@ export default function Contact() {
               <div>
                 <p className="text-gray-600">Email</p>
                 <p className="font-semibold">
-                  info@kripaengineering.com.np
+                  info@paengineering.com.np
                 </p>
               </div>
             </div>
@@ -103,7 +103,7 @@ export default function Contact() {
                   href="https://www.facebook.com/engineers.kripa"
                   className="font-semibold hover:underline"
                 >
-                  facebook.com/engineers.kripa
+                  facebook.com/engineers.paengineering
                 </a>
               </div>
             </div>

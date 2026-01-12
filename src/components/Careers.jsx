@@ -10,7 +10,7 @@ export default function Careers() {
   useEffect(() => {
     const fetchCareers = async () => {
       try {
-        const res = await api.get("/career");
+        const res = await api.get("/getCareer");
         console.log("Career API response:", res.data);
 
         

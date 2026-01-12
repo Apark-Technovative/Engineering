@@ -46,7 +46,7 @@ const Hero = () => {
           </h2>
 
           <p className="mt-6 text-[15px] leading-7 text-gray-600">
-            Kripa Engineering Associates Pvt. Ltd. (KEA), 
+            PA Engineering, 
             established in May 2018, is a leading 
             multidisciplinary firm in Nepal specializing 
             in Real Estate Appraisal, Property Consultancy, 

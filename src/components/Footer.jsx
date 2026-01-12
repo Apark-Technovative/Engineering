@@ -1,6 +1,6 @@
 import React from "react";
 import { AiOutlinePhone, AiOutlineMail } from "react-icons/ai";
-import { Link } from "react-router-dom"; // import Link
+import { Link } from "react-router-dom"; 
 
 const Footer = () => {
   return (
@@ -11,7 +11,7 @@ const Footer = () => {
         <div>
           <h3 className="text-[16px] font-semibold mb-6">About Company</h3>
           <p className="text-[14px] leading-7 text-gray-700">
-            Kripa Engineering Associates Pvt. Ltd., established in May 2018, is a
+            PA Engineering, established in May 2018, is a
             reputable name in property appraisal, surveying, and property consultancy.
             Dedicated to excellence and delivering quality services, it has earned a
             commendable reputation in the industry.
@@ -68,7 +68,7 @@ const Footer = () => {
 
           <div className="flex gap-3 items-center text-[14px] text-gray-700">
             <AiOutlineMail className="w-5 h-5 text-gray-600" />
-            <span>info@kripaengineering.com.np</span>
+            <span>info@paengineering.com.np</span>
           </div>
         </div>
       </div>
@@ -77,7 +77,7 @@ const Footer = () => {
       <div className="border-t border-gray-300 py-10 text-center">
         <img src="/path/to/logo.png" className="mx-auto mb-4 h-14" alt="logo" />
         <p className="text-[14px] text-gray-600">
-          © 2025 Kripa Engineering Associates Pvt. Ltd. All rights reserved
+          © 2025 PA Engineering. All rights reserved
         </p>
       </div>
     </footer>

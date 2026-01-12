@@ -14,6 +14,8 @@ import Contact from "./components/Contact";
 import Client from "./components/Clients";
 import Careers from "./components/Careers";
 import ScrollToTop from "./components/ScrollToTop";
+import GetQuote from "./components/GetQuote";
+import Pricing from "./components/Pricing";
 
 const Home = () => {
   return (
@@ -40,6 +42,8 @@ function App() {
         <Route path="/insights" element={<CompanyInsights />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/careers" element={<Careers />} />
+        <Route path="/get-quote" element={<GetQuote />} />
+         <Route path="/pricing" element={<Pricing />} />
       </Routes>
 
       <Footer />
