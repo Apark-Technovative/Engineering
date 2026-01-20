@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import sachin from "../images/sachin.png";
 import expert1 from "../images/expert1.png";
 import expert2 from "../images/expert2.png";
@@ -7,6 +7,11 @@ import { FaLinkedin } from "react-icons/fa";
 import Footer from "./Footer";
 
 const Experts = () => {
+
+  useEffect(() => {
+    document.title = "Experts";
+  }, []);
+
   return (
     <div className="bg-white">
       <section className="max-w-7xl mx-auto px-6 py-20 grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -29,7 +34,7 @@ const Experts = () => {
             Internationally. He is licensed as a Civil Engineer by the Nepal Engineering Council and an Insurance Surveyor by 
             the Nepal Insurance Authority. He is currently pursuing a PhD at Sharda University, India, focusing on global real 
             estate valuation practices and trends. As the Executive Chairman and Founder of Kripa Engineering Associates Pvt.
-             Ltd., based in Kathmandu, Nepal, Mr. Bhattarai has led numerous high-impact projects, strengthened key client
+            Ltd., based in Kathmandu, Nepal, Mr. Bhattarai has led numerous high-impact projects, strengthened key client
             relationships and played a pivotal role in driving the company’s sustained growth. His expertise is also sought
             after as a part-time consultant for various organizations, reflecting his adaptability and industry-wide recognition.
             His leadership is further demonstrated through his roles as a Central Executive Committee Member of the Nepal Valuers
@@ -52,7 +57,10 @@ const Experts = () => {
       </section>
 
       <section className="bg-[#f7f9fb] py-20">
-        <h2 className="text-3xl font-semibold text-center mb-16">Our Experts</h2>
+        <h2 className="text-3xl font-semibold text-center mb-16">
+          Our Experts
+        </h2>
+
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10">
           <ExpertCard
             image={expert1}
@@ -64,6 +72,7 @@ const Experts = () => {
             His commitment to precision and quality reflects in his work, where he applies a meticulous approach to ensure 
             accurate assessments and solutions in the real estate sector."
           />
+
           <ExpertCard
             image={expert2}
             name="Kripa Sharma Poudel"
@@ -73,6 +82,7 @@ const Experts = () => {
             to insurance survey and loss evaluation in infrastructure projects, ensuring reliable assessments and risk analysis for 
             both engineering and insurance sectors."
           />
+
           <ExpertCard
             image={expert3}
             name="Samjhana Shrestha"
@@ -86,12 +96,7 @@ const Experts = () => {
           />
         </div>
       </section>
-      
     </div>
-
-
-
-
   );
 };
 
@@ -111,17 +116,6 @@ const ExpertCard = ({ image, name, title, description }) => (
       LinkedIn
     </a>
   </div>
-
-
-
-
 );
 
-
-
-
 export default Experts;
-
-
-
-

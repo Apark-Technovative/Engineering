@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import api from "../api/axios";
 import {
   FaPhoneAlt,
@@ -18,6 +18,10 @@ export default function Contact() {
   const [nameError, setNameError] = useState("");
   const [sending, setSending] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    document.title = "Contact Us";
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -57,8 +61,7 @@ export default function Contact() {
   return (
     <div className="bg-[#eef3f7] py-16">
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-14">
-
-       
+     
         <div>
           <h2 className="text-4xl font-bold text-gray-900 mb-10">
             Contact Us
@@ -110,7 +113,6 @@ export default function Contact() {
           </div>
         </div>
 
-       
         <div className="bg-white rounded-xl shadow-md p-8">
           <h3 className="text-3xl font-bold mb-2">
             Let's Discuss About Your Spaces!
@@ -165,7 +167,6 @@ export default function Contact() {
               />
             </div>
 
-            
             <button
               type="submit"
               disabled={sending}
@@ -197,7 +198,7 @@ export default function Contact() {
         </div>
       </div>
 
-     
+
       <div className="max-w-7xl mx-auto px-6 mt-16">
         <h3 className="text-2xl font-bold mb-4">Find Us on Map</h3>
         <div className="w-full h-[350px] rounded-xl overflow-hidden shadow-md">

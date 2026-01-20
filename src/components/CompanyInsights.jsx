@@ -1,5 +1,4 @@
-
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import houseImg from "../images/house.png";
 
 const insightsData = [
@@ -60,12 +59,15 @@ const insightsData = [
 ];
 
 const CompanyInsights = () => {
-  
   const [activeId, setActiveId] = useState(null);
+
+  useEffect(() => {
+    document.title = "Company Insights";
+  }, []);
 
   return (
     <section className="relative max-w-6xl mx-auto px-6 py-16">
-      {/* Dotted Background */}
+     
       <div
         aria-hidden="true"
         className="absolute inset-0 pointer-events-none"
@@ -76,22 +78,19 @@ const CompanyInsights = () => {
         }}
       />
 
-     
       <h2 className="relative text-3xl font-bold text-center mb-8">
         Company Insights
       </h2>
 
-      
       <p className="relative max-w-3xl mx-auto text-center text-gray-700 mb-12 leading-relaxed">
-        Sachin Bhattarai, the lead real estate appraiser of our organization, has a distinguished 
-        record of participation in numerous national and international events. His active involvement 
-        reflects his commitment to excellence and leadership in the real estate appraisal, consulting 
-        and insurance surveying sectors. Through his continuous engagement in industry conferences, 
-        training programs and professional forums, he consistently contributes to advancing valuation 
+        Sachin Bhattarai, the lead real estate appraiser of our organization, has a distinguished
+        record of participation in numerous national and international events. His active involvement
+        reflects his commitment to excellence and leadership in the real estate appraisal, consulting
+        and insurance surveying sectors. Through his continuous engagement in industry conferences,
+        training programs and professional forums, he consistently contributes to advancing valuation
         and insurance assessment practices both in Nepal and abroad.
       </p>
 
-      
       <div className="relative space-y-12">
         {insightsData.map(({ id, title, date, imageUrl }) => (
           <div
@@ -104,7 +103,6 @@ const CompanyInsights = () => {
               className="w-full md:w-72 h-auto object-cover rounded-md flex-shrink-0"
             />
             <div>
-              
               <h3
                 className={`text-xl md:text-2xl font-semibold text-gray-900 cursor-pointer
                   ${activeId === id ? "underline" : ""} hover:underline`}
@@ -112,7 +110,9 @@ const CompanyInsights = () => {
               >
                 {title}
               </h3>
-              <p className="text-gray-600 text-sm md:text-base mt-1">{date}</p>
+              <p className="text-gray-600 text-sm md:text-base mt-1">
+                {date}
+              </p>
             </div>
           </div>
         ))}

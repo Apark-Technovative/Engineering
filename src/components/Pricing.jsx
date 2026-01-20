@@ -1,5 +1,418 @@
+// import { useSearchParams } from "react-router-dom";
+// import { useEffect, useState } from "react";
+
+// const BLUE = "#2F6FAD";
+
+// const Pricing = () => {
+//   const [searchParams] = useSearchParams();
+//   const [activeTab, setActiveTab] = useState("banking");
+
+//   useEffect(() => {
+//     const tab = searchParams.get("tab");
+//     if (tab) setActiveTab(tab);
+//   }, [searchParams]);
+
+//   return (
+//     <div className="min-h-screen bg-[#f3f8fc] py-24 px-4">
+//       <h1 className="text-4xl font-bold text-center mb-12 text-[#1f2d3d]">
+//         Pricing
+//       </h1>
+
+     
+//       <div className="flex justify-center flex-wrap gap-4 mb-14">
+//         <Tab
+//           label="Banking Mortgage Loans in Nepal"
+//           value="banking"
+//           activeTab={activeTab}
+//           setActiveTab={setActiveTab}
+//         />
+//         <Tab
+//           label="Embassy/Consulate Uses"
+//           value="embassy"
+//           activeTab={activeTab}
+//           setActiveTab={setActiveTab}
+//         />
+//         <Tab
+//           label="Individuals (Except Banking Purposes)"
+//           value="individual"
+//           activeTab={activeTab}
+//           setActiveTab={setActiveTab}
+//         />
+//         <Tab
+//           label="Corporate Houses"
+//           value="corporate"
+//           activeTab={activeTab}
+//           setActiveTab={setActiveTab}
+//         />
+//         <Tab
+//           label="Big Projects"
+//           value="big-projects"
+//           activeTab={activeTab}
+//           setActiveTab={setActiveTab}
+//         />
+//       </div>
+
+  
+//       <div className="flex justify-center">
+//         {activeTab === "banking" && <BankingPricingCard />}
+//         {activeTab === "embassy" && <EmbassyPricingCard />}
+//         {activeTab === "individual" && <IndividualPricingCard />}
+//         {activeTab === "corporate" && <CorporateHouse/>}
+//         {activeTab === "big-projects" && <BigProjects/>}
+//       </div>
+
+   
+//       <div className="max-w-4xl mx-auto mt-16 text-sm text-[#1f2d3d]">
+//         <p className="font-semibold mb-2">Note:</p>
+//         <ul className="list-disc pl-6 space-y-2">
+//           <li>
+//             The fees are indicative and can vary based on specific client
+//             requirements, property complexity, location and other factors.
+//           </li>
+//           <li>
+//             Additional charges may apply for travel, detailed reports and any
+//             extra services requested by the client.
+//           </li>
+//           <li>13% VAT is additional applied in all mentioned fees.</li>
+//         </ul>
+//         <p className="italic mt-4">
+//           For an accurate quote, it's recommended to contact us directly.
+//         </p>
+//       </div>
+//     </div>
+//   );
+// };
+
+// const Tab = ({ label, value, activeTab, setActiveTab }) => (
+//   <button
+//     onClick={() => setActiveTab(value)}
+//     className={`px-6 py-3 rounded-full text-sm font-medium transition
+//       ${
+//         activeTab === value
+//           ? "!bg-[#2F6FAD] !text-white"
+//           : "bg-white text-[#1f2d3d]"
+//       }`}
+//   >
+//     {label}
+//   </button>
+// );
+
+// const BankingPricingCard = () => {
+//   return (
+//     <div className="bg-white rounded-xl shadow-md w-full max-w-md p-10">
+//       <h2 className="text-xl font-bold text-center mb-8 text-[#1f2d3d]">
+//         Banking Mortgage Loans in Nepal
+//       </h2>
+
+      
+//       <div className="mb-6">
+//         <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
+//           Fair Market Value (NPR)
+//         </label>
+//         <input
+//           type="number"
+//           className="w-full bg-[#eef3f8] rounded-md px-4 py-3 text-sm focus:outline-none"
+//         />
+//       </div>
+
+      
+//       <div className="mb-8">
+//         <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
+//           Your Email <span className="text-red-500">*</span>
+//         </label>
+//         <input
+//           type="email"
+//           className="w-full bg-[#eef3f8] rounded-md px-4 py-3 text-sm focus:outline-none"
+//         />
+//       </div>
+
+    
+//       <button className="w-full !bg-[#2F6FAD] !text-white py-3 rounded-full text-sm font-semibold hover:bg-[#255a8d] transition">
+//         Request A Quote
+//       </button>
+//     </div>
+//   );
+// };
+
+// const EmbassyPricingCard = () => {
+//   return (
+//     <div className="bg-white rounded-xl shadow-md w-full max-w-md p-10">
+//       <h2 className="text-xl font-bold text-center mb-8 text-[#1f2d3d]">
+//         Embassy/Consulate Uses
+//       </h2>
+
+     
+//       <div className="mb-6">
+//         <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
+//           Select Type <span className="text-red-500">*</span>
+//         </label>
+//         <select className="w-full bg-[#eef3f8] rounded-md px-4 py-3 text-sm focus:outline-none">
+//           <option value="">Select an option</option>
+//           <option>
+//             Properties for Foreign Studies, Visas or Foreign Court Decisions
+//           </option>
+//           <option>Embassy / Consulate Purpose</option>
+//         </select>
+//       </div>
+
+    
+//       <div className="mb-6">
+//         <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
+//           Package Type <span className="text-red-500">*</span>
+//         </label>
+//         <select className="w-full bg-[#eef3f8] rounded-md px-4 py-3 text-sm focus:outline-none">
+//           <option value="">Select a package</option>
+//           <option>Standard</option>
+//           <option>Detailed</option>
+//         </select>
+//       </div>
+
+      
+//       <div className="mb-8">
+//         <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
+//           Your Email <span className="text-red-500">*</span>
+//         </label>
+//         <input
+//           type="email"
+//           className="w-full bg-[#eef3f8] rounded-md px-4 py-3 text-sm focus:outline-none"
+//         />
+//       </div>
+
+    
+//       <button className="w-full !bg-[#2F6FAD] !text-white py-3 rounded-full text-sm font-semibold hover:bg-[#255a8d] transition">
+//         Request A Quote
+//       </button>
+//     </div>
+//   );
+// };
+
+// const IndividualPricingCard = () => {
+//   return (
+//     <div className="bg-white rounded-xl shadow-md w-full max-w-md p-10">
+//       <h2 className="text-xl font-bold text-center mb-8 text-[#1f2d3d]">
+//         Individuals (Except Banking Purposes)
+//       </h2>
+
+     
+//       <div className="mb-10">
+//         <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
+//           Select Valuation Type <span className="text-red-500">*</span>
+//         </label>
+
+//         <select className="w-full bg-white border border-[#d6e1ec] rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#2F6FAD]">
+//           <option value="">Select an option</option>
+//           <option>Residential Property Valuation</option>
+//           <option>Land Valuation</option>
+//         </select>
+//       </div>
+//          <div className="mb-8">
+//         <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
+//           Your Email <span className="text-red-500">*</span>
+//         </label>
+//         <input
+//           type="email"
+//           className="w-full bg-[#eef3f8] rounded-md px-4 py-3 text-sm focus:outline-none"
+//         />
+//       </div>
+
+   
+//       <button className="w-full !bg-[#2F6FAD] !text-white py-3 rounded-full text-sm font-semibold hover:bg-[#255a8d] transition">
+//         Request A Quote
+//       </button>
+    
+//     </div>
+//   );
+// };
+
+
+// const CorporateHouse = () => {
+//   return (
+//     <div className="bg-white rounded-xl shadow-md w-full max-w-md p-10">
+//       <h2 className="text-xl font-bold text-center mb-8 text-[#1f2d3d]">
+//         Corporate Houses
+//       </h2>
+
+     
+//       <div className="mb-10">
+//         <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
+//           Select Valuation Type <span className="text-red-500">*</span>
+//         </label>
+
+//         <select className="w-full bg-white border border-[#d6e1ec] rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#2F6FAD]">
+//           <option value="">Select an option</option>
+//           <option>Commercial Property Valuation</option>
+//           <option>Industry Property Valuation</option>
+//         </select>
+//       </div>
+//          <div className="mb-8">
+//         <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
+//           Your Email <span className="text-red-500">*</span>
+//         </label>
+//         <input
+//           type="email"
+//           className="w-full bg-[#eef3f8] rounded-md px-4 py-3 text-sm focus:outline-none"
+//         />
+//       </div>
+
+      
+//       <button className="w-full !bg-[#2F6FAD] !text-white py-3 rounded-full text-sm font-semibold hover:bg-[#255a8d] transition">
+//         Request A Quote
+//       </button>
+    
+//     </div>
+//   );
+// };
+
+// const BigProjects = () => {
+//   return (
+//     <div className="bg-white rounded-xl shadow-md w-full max-w-md p-10">
+//       <h2 className="text-xl font-bold text-center mb-8 text-[#1f2d3d]">
+//         Big Projects
+//       </h2>
+//       <div className="mb-10">
+//         <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
+//           Select Valuation Type <span className="text-red-500">*</span>
+//         </label>
+
+//         <select className="w-full bg-white border border-[#d6e1ec] rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#2F6FAD]">
+//           <option value="">Select an option</option>
+//           <option>Real Estate Development Projects</option>
+//           <option>Infrastructure Projects</option>
+//         </select>
+//       </div>
+//       <div className="mb-10">
+//         <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
+//           Select Project Size <span className="text-red-500">*</span>
+//         </label>
+
+//         <select className="w-full bg-white border border-[#d6e1ec] rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#2F6FAD]">
+//           <option value="">Select an option</option>
+//           <option>Small Projects (up to 10 units)</option>
+//           <option>Medium Projects (11-50 units)</option>
+//           <option>Large Projects (more than 50) </option>
+//         </select>
+//       </div>
+//          <div className="mb-8">
+//         <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
+//           Your Email <span className="text-red-500">*</span>
+//         </label>
+//         <input
+//           type="email"
+//           className="w-full bg-[#eef3f8] rounded-md px-4 py-3 text-sm focus:outline-none"
+//         />
+//       </div>
+
+   
+//       <button className="w-full !bg-[#2F6FAD] !text-white py-3 rounded-full text-sm font-semibold hover:bg-[#255a8d] transition">
+//         Request A Quote
+//       </button>
+    
+//     </div>
+//   );
+// };
+// export default Pricing;
+
+
+
+
+
+
+// import { useState } from "react";
+// import axios from "axios";
+
+// const Pricing = ({ title, price }) => {
+//   const [type1, setType1] = useState("");
+//   const [type2, setType2] = useState("");
+//   const [email, setEmail] = useState("");
+//   const [loading, setLoading] = useState(false);
+//   const [message, setMessage] = useState(""); // success/error
+
+//   const handleSubmit = async () => {
+//     if (!email) {
+//       setMessage("Please enter your email!");
+//       return;
+//     }
+
+//     setLoading(true);
+//     setMessage("");
+
+//     try {
+//       const res = await axios.post("http://localhost:4000/sendQuote", {
+//         title,
+//         type1,
+//         type2,
+//         price,
+//         email,
+//       });
+
+//       setMessage(res.data.message);
+//       setType1("");
+//       setType2("");
+//       setEmail("");
+//     } catch (err) {
+//       console.error("Error response:", err.response?.data || err.message);
+//       setMessage("Failed to send email!");
+//     } finally {
+//       setLoading(false);
+//     }
+//   };
+
+//   return (
+//     <div className="bg-white rounded-xl shadow-md w-full max-w-md p-10">
+//       <h2 className="text-xl font-bold text-center mb-8 text-[#1f2d3d]">
+//         {title}
+//       </h2>
+
+//       <input
+//         type="text"
+//         placeholder="Type 1"
+//         value={type1}
+//         onChange={(e) => setType1(e.target.value)}
+//         className="w-full mb-4 bg-[#eef3f8] rounded-md px-4 py-3 text-sm focus:outline-none"
+//       />
+//       <input
+//         type="text"
+//         placeholder="Type 2"
+//         value={type2}
+//         onChange={(e) => setType2(e.target.value)}
+//         className="w-full mb-4 bg-[#eef3f8] rounded-md px-4 py-3 text-sm focus:outline-none"
+//       />
+//       <input
+//         type="email"
+//         placeholder="Your Email"
+//         value={email}
+//         onChange={(e) => setEmail(e.target.value)}
+//         className="w-full mb-6 bg-[#eef3f8] rounded-md px-4 py-3 text-sm focus:outline-none"
+//       />
+
+//       {message && (
+//         <p
+//           className={`mb-4 text-center ${
+//             message.includes("Failed") ? "text-red-500" : "text-green-500"
+//           }`}
+//         >
+//           {message}
+//         </p>
+//       )}
+
+//       <button
+//         onClick={handleSubmit}
+//         disabled={loading}
+//         className={`w-full !bg-[#2F6FAD] !text-white py-3 rounded-full text-sm font-semibold transition ${
+//           loading ? "opacity-50 cursor-not-allowed" : "hover:bg-[#255a8d]"
+//         }`}
+//       >
+//         {loading ? "Sending..." : "Request A Quote"}
+//       </button>
+//     </div>
+//   );
+// };
+
+// export default Pricing;
+
 import { useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 const BLUE = "#2F6FAD";
 
@@ -18,7 +431,6 @@ const Pricing = () => {
         Pricing
       </h1>
 
-     
       <div className="flex justify-center flex-wrap gap-4 mb-14">
         <Tab
           label="Banking Mortgage Loans in Nepal"
@@ -52,16 +464,14 @@ const Pricing = () => {
         />
       </div>
 
-  
       <div className="flex justify-center">
         {activeTab === "banking" && <BankingPricingCard />}
         {activeTab === "embassy" && <EmbassyPricingCard />}
         {activeTab === "individual" && <IndividualPricingCard />}
-        {activeTab === "corporate" && <CorporateHouse/>}
-        {activeTab === "big-projects" && <BigProjects/>}
+        {activeTab === "corporate" && <CorporateHouse />}
+        {activeTab === "big-projects" && <BigProjects />}
       </div>
 
-   
       <div className="max-w-4xl mx-auto mt-16 text-sm text-[#1f2d3d]">
         <p className="font-semibold mb-2">Note:</p>
         <ul className="list-disc pl-6 space-y-2">
@@ -97,217 +507,473 @@ const Tab = ({ label, value, activeTab, setActiveTab }) => (
   </button>
 );
 
+const sendQuote = async (payload, setMessage, setLoading, resetFields) => {
+  if (!payload.email) {
+    setMessage("Please enter your email!");
+    return;
+  }
+  setLoading(true);
+  setMessage("");
+  try {
+    const res = await axios.post(
+  "https://pa-backend-f7w6.onrender.com/api/sendQuote",
+  payload
+);
+
+    setMessage(res.data.message || "Email sent successfully!");
+    resetFields();
+  } catch (err) {
+    console.error("Error response:", err.response?.data || err.message);
+    setMessage("Failed to send email!");
+  } finally {
+    setLoading(false);
+  }
+};
+
+
+
 const BankingPricingCard = () => {
+  const [fairMarketValue, setFairMarketValue] = useState("");
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
+
+  const resetFields = () => {
+    setFairMarketValue("");
+    setEmail("");
+  };
+
+ const handleSubmit = () => {
+  sendQuote(
+    {
+      title: "Banking Mortgage Loans in Nepal",
+      type1: "Fair Market Value",
+      type2: fairMarketValue,
+      price: "", // optional
+      email,
+    },
+    setMessage,
+    setLoading,
+    resetFields
+  );
+};
+
+
   return (
     <div className="bg-white rounded-xl shadow-md w-full max-w-md p-10">
       <h2 className="text-xl font-bold text-center mb-8 text-[#1f2d3d]">
         Banking Mortgage Loans in Nepal
       </h2>
 
-      
-      <div className="mb-6">
-        <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
-          Fair Market Value (NPR)
-        </label>
-        <input
-          type="number"
-          className="w-full bg-[#eef3f8] rounded-md px-4 py-3 text-sm focus:outline-none"
-        />
-      </div>
+      <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
+        Fair Market Value (NPR)
+      </label>
+      <input
+        type="number"
+        value={fairMarketValue}
+        onChange={(e) => setFairMarketValue(e.target.value)}
+        className="w-full mb-6 bg-[#eef3f8] rounded-md px-4 py-3 text-sm focus:outline-none"
+        placeholder="Enter Fair Market Value"
+      />
 
-      
-      <div className="mb-8">
-        <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
-          Your Email <span className="text-red-500">*</span>
-        </label>
-        <input
-          type="email"
-          className="w-full bg-[#eef3f8] rounded-md px-4 py-3 text-sm focus:outline-none"
-        />
-      </div>
+      <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
+        Your Email <span className="text-red-500">*</span>
+      </label>
+      <input
+        type="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        className="w-full mb-6 bg-[#eef3f8] rounded-md px-4 py-3 text-sm focus:outline-none"
+        placeholder="Your Email"
+      />
 
-    
-      <button className="w-full !bg-[#2F6FAD] !text-white py-3 rounded-full text-sm font-semibold hover:bg-[#255a8d] transition">
-        Request A Quote
+      {message && (
+        <p
+          className={`mb-4 text-center ${
+            message.includes("Failed") ? "text-red-500" : "text-green-500"
+          }`}
+        >
+          {message}
+        </p>
+      )}
+
+      <button
+        onClick={handleSubmit}
+        disabled={loading}
+        className={`w-full !bg-[#2F6FAD] !text-white py-3 rounded-full text-sm font-semibold transition ${
+          loading ? "opacity-50 cursor-not-allowed" : "hover:bg-[#255a8d]"
+        }`}
+      >
+        {loading ? "Sending..." : "Request A Quote"}
       </button>
     </div>
   );
 };
 
 const EmbassyPricingCard = () => {
+  const [type, setType] = useState("");
+  const [packageType, setPackageType] = useState("");
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
+
+  const resetFields = () => {
+    setType("");
+    setPackageType("");
+    setEmail("");
+  };
+
+const handleSubmit = () => {
+  sendQuote(
+    {
+      title: "Embassy/Consulate Uses",
+      type1: type,
+      type2: packageType,
+      price: "",
+      email,
+    },
+    setMessage,
+    setLoading,
+    resetFields
+  );
+};
+
+
   return (
     <div className="bg-white rounded-xl shadow-md w-full max-w-md p-10">
       <h2 className="text-xl font-bold text-center mb-8 text-[#1f2d3d]">
         Embassy/Consulate Uses
       </h2>
 
-     
-      <div className="mb-6">
-        <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
-          Select Type <span className="text-red-500">*</span>
-        </label>
-        <select className="w-full bg-[#eef3f8] rounded-md px-4 py-3 text-sm focus:outline-none">
-          <option value="">Select an option</option>
-          <option>
-            Properties for Foreign Studies, Visas or Foreign Court Decisions
-          </option>
-          <option>Embassy / Consulate Purpose</option>
-        </select>
-      </div>
+      <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
+        Select Type <span className="text-red-500">*</span>
+      </label>
+      <select
+        value={type}
+        onChange={(e) => setType(e.target.value)}
+        className="w-full mb-6 bg-[#eef3f8] rounded-md px-4 py-3 text-sm focus:outline-none"
+      >
+        <option value="">Select an option</option>
+        <option value="Properties for Foreign Studies, Visas or Foreign Court Decisions">
+          Properties for Foreign Studies, Visas or Foreign Court Decisions
+        </option>
+        <option value="Embassy / Consulate Purpose">
+          Embassy / Consulate Purpose
+        </option>
+      </select>
 
-    
-      <div className="mb-6">
-        <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
-          Package Type <span className="text-red-500">*</span>
-        </label>
-        <select className="w-full bg-[#eef3f8] rounded-md px-4 py-3 text-sm focus:outline-none">
-          <option value="">Select a package</option>
-          <option>Standard</option>
-          <option>Detailed</option>
-        </select>
-      </div>
+      <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
+        Package Type <span className="text-red-500">*</span>
+      </label>
+      <select
+        value={packageType}
+        onChange={(e) => setPackageType(e.target.value)}
+        className="w-full mb-6 bg-[#eef3f8] rounded-md px-4 py-3 text-sm focus:outline-none"
+      >
+        <option value="">Select a package</option>
+        <option value="Standard">Standard</option>
+        <option value="Detailed">Detailed</option>
+      </select>
 
-      
-      <div className="mb-8">
-        <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
-          Your Email <span className="text-red-500">*</span>
-        </label>
-        <input
-          type="email"
-          className="w-full bg-[#eef3f8] rounded-md px-4 py-3 text-sm focus:outline-none"
-        />
-      </div>
+      <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
+        Your Email <span className="text-red-500">*</span>
+      </label>
+      <input
+        type="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        className="w-full mb-6 bg-[#eef3f8] rounded-md px-4 py-3 text-sm focus:outline-none"
+        placeholder="Your Email"
+      />
 
-    
-      <button className="w-full !bg-[#2F6FAD] !text-white py-3 rounded-full text-sm font-semibold hover:bg-[#255a8d] transition">
-        Request A Quote
+      {message && (
+        <p
+          className={`mb-4 text-center ${
+            message.includes("Failed") ? "text-red-500" : "text-green-500"
+          }`}
+        >
+          {message}
+        </p>
+      )}
+
+      <button
+        onClick={handleSubmit}
+        disabled={loading}
+        className={`w-full !bg-[#2F6FAD] !text-white py-3 rounded-full text-sm font-semibold transition ${
+          loading ? "opacity-50 cursor-not-allowed" : "hover:bg-[#255a8d]"
+        }`}
+      >
+        {loading ? "Sending..." : "Request A Quote"}
       </button>
     </div>
   );
 };
 
 const IndividualPricingCard = () => {
+  const [valuationType, setValuationType] = useState("");
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
+
+  const resetFields = () => {
+    setValuationType("");
+    setEmail("");
+  };
+
+ const handleSubmit = () => {
+  sendQuote(
+    {
+      title: "Individuals (Except Banking Purposes)",
+      type1: valuationType,
+      type2: "",
+      price: "",
+      email,
+    },
+    setMessage,
+    setLoading,
+    resetFields
+  );
+};
+
+
   return (
     <div className="bg-white rounded-xl shadow-md w-full max-w-md p-10">
       <h2 className="text-xl font-bold text-center mb-8 text-[#1f2d3d]">
         Individuals (Except Banking Purposes)
       </h2>
 
-     
-      <div className="mb-10">
-        <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
-          Select Valuation Type <span className="text-red-500">*</span>
-        </label>
+      <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
+        Select Valuation Type <span className="text-red-500">*</span>
+      </label>
+      <select
+        value={valuationType}
+        onChange={(e) => setValuationType(e.target.value)}
+        className="w-full mb-10 bg-white border border-[#d6e1ec] rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#2F6FAD]"
+      >
+        <option value="">Select an option</option>
+        <option value="Residential Property Valuation">
+          Residential Property Valuation
+        </option>
+        <option value="Land Valuation">Land Valuation</option>
+      </select>
 
-        <select className="w-full bg-white border border-[#d6e1ec] rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#2F6FAD]">
-          <option value="">Select an option</option>
-          <option>Residential Property Valuation</option>
-          <option>Land Valuation</option>
-        </select>
-      </div>
-         <div className="mb-8">
-        <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
-          Your Email <span className="text-red-500">*</span>
-        </label>
-        <input
-          type="email"
-          className="w-full bg-[#eef3f8] rounded-md px-4 py-3 text-sm focus:outline-none"
-        />
-      </div>
+      <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
+        Your Email <span className="text-red-500">*</span>
+      </label>
+      <input
+        type="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        className="w-full mb-6 bg-[#eef3f8] rounded-md px-4 py-3 text-sm focus:outline-none"
+        placeholder="Your Email"
+      />
 
-   
-      <button className="w-full !bg-[#2F6FAD] !text-white py-3 rounded-full text-sm font-semibold hover:bg-[#255a8d] transition">
-        Request A Quote
+      {message && (
+        <p
+          className={`mb-4 text-center ${
+            message.includes("Failed") ? "text-red-500" : "text-green-500"
+          }`}
+        >
+          {message}
+        </p>
+      )}
+
+      <button
+        onClick={handleSubmit}
+        disabled={loading}
+        className={`w-full !bg-[#2F6FAD] !text-white py-3 rounded-full text-sm font-semibold transition ${
+          loading ? "opacity-50 cursor-not-allowed" : "hover:bg-[#255a8d]"
+        }`}
+      >
+        {loading ? "Sending..." : "Request A Quote"}
       </button>
-    
     </div>
   );
 };
 
-
 const CorporateHouse = () => {
+  const [valuationType, setValuationType] = useState("");
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
+
+  const resetFields = () => {
+    setValuationType("");
+    setEmail("");
+  };
+
+  const handleSubmit = () => {
+    sendQuote(
+      {
+        title: "Corporate Houses",
+        valuationType,
+        email,
+      },
+      setMessage,
+      setLoading,
+      resetFields
+    );
+  };
+
   return (
     <div className="bg-white rounded-xl shadow-md w-full max-w-md p-10">
       <h2 className="text-xl font-bold text-center mb-8 text-[#1f2d3d]">
         Corporate Houses
       </h2>
 
-     
-      <div className="mb-10">
-        <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
-          Select Valuation Type <span className="text-red-500">*</span>
-        </label>
+      <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
+        Select Valuation Type <span className="text-red-500">*</span>
+      </label>
+      <select
+        value={valuationType}
+        onChange={(e) => setValuationType(e.target.value)}
+        className="w-full mb-10 bg-white border border-[#d6e1ec] rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#2F6FAD]"
+      >
+        <option value="">Select an option</option>
+        <option value="Commercial Property Valuation">
+          Commercial Property Valuation
+        </option>
+        <option value="Industry Property Valuation">
+          Industry Property Valuation
+        </option>
+      </select>
 
-        <select className="w-full bg-white border border-[#d6e1ec] rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#2F6FAD]">
-          <option value="">Select an option</option>
-          <option>Commercial Property Valuation</option>
-          <option>Industry Property Valuation</option>
-        </select>
-      </div>
-         <div className="mb-8">
-        <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
-          Your Email <span className="text-red-500">*</span>
-        </label>
-        <input
-          type="email"
-          className="w-full bg-[#eef3f8] rounded-md px-4 py-3 text-sm focus:outline-none"
-        />
-      </div>
+      <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
+        Your Email <span className="text-red-500">*</span>
+      </label>
+      <input
+        type="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        className="w-full mb-6 bg-[#eef3f8] rounded-md px-4 py-3 text-sm focus:outline-none"
+        placeholder="Your Email"
+      />
 
-      
-      <button className="w-full !bg-[#2F6FAD] !text-white py-3 rounded-full text-sm font-semibold hover:bg-[#255a8d] transition">
-        Request A Quote
+      {message && (
+        <p
+          className={`mb-4 text-center ${
+            message.includes("Failed") ? "text-red-500" : "text-green-500"
+          }`}
+        >
+          {message}
+        </p>
+      )}
+
+      <button
+        onClick={handleSubmit}
+        disabled={loading}
+        className={`w-full !bg-[#2F6FAD] !text-white py-3 rounded-full text-sm font-semibold transition ${
+          loading ? "opacity-50 cursor-not-allowed" : "hover:bg-[#255a8d]"
+        }`}
+      >
+        {loading ? "Sending..." : "Request A Quote"}
       </button>
-    
     </div>
   );
 };
 
 const BigProjects = () => {
+  const [valuationType, setValuationType] = useState("");
+  const [projectSize, setProjectSize] = useState("");
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
+
+  const resetFields = () => {
+    setValuationType("");
+    setProjectSize("");
+    setEmail("");
+  };
+
+ const handleSubmit = () => {
+  sendQuote(
+    {
+      title: "Big Projects",
+      type1: valuationType,
+      type2: projectSize,
+      price: "",
+      email,
+    },
+    setMessage,
+    setLoading,
+    resetFields
+  );
+};
+
+
   return (
     <div className="bg-white rounded-xl shadow-md w-full max-w-md p-10">
       <h2 className="text-xl font-bold text-center mb-8 text-[#1f2d3d]">
         Big Projects
       </h2>
-      <div className="mb-10">
-        <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
-          Select Valuation Type <span className="text-red-500">*</span>
-        </label>
 
-        <select className="w-full bg-white border border-[#d6e1ec] rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#2F6FAD]">
-          <option value="">Select an option</option>
-          <option>Real Estate Development Projects</option>
-          <option>Infrastructure Projects</option>
-        </select>
-      </div>
-      <div className="mb-10">
-        <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
-          Select Project Size <span className="text-red-500">*</span>
-        </label>
+      <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
+        Select Valuation Type <span className="text-red-500">*</span>
+      </label>
+      <select
+        value={valuationType}
+        onChange={(e) => setValuationType(e.target.value)}
+        className="w-full mb-6 bg-white border border-[#d6e1ec] rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#2F6FAD]"
+      >
+        <option value="">Select an option</option>
+        <option value="Real Estate Development Projects">
+          Real Estate Development Projects
+        </option>
+        <option value="Infrastructure Projects">Infrastructure Projects</option>
+      </select>
 
-        <select className="w-full bg-white border border-[#d6e1ec] rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#2F6FAD]">
-          <option value="">Select an option</option>
-          <option>Small Projects (up to 10 units)</option>
-          <option>Medium Projects (11-50 units)</option>
-          <option>Large Projects (more than 50) </option>
-        </select>
-      </div>
-         <div className="mb-8">
-        <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
-          Your Email <span className="text-red-500">*</span>
-        </label>
-        <input
-          type="email"
-          className="w-full bg-[#eef3f8] rounded-md px-4 py-3 text-sm focus:outline-none"
-        />
-      </div>
+      <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
+        Select Project Size <span className="text-red-500">*</span>
+      </label>
+      <select
+        value={projectSize}
+        onChange={(e) => setProjectSize(e.target.value)}
+        className="w-full mb-6 bg-white border border-[#d6e1ec] rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#2F6FAD]"
+      >
+        <option value="">Select an option</option>
+        <option value="Small Projects (up to 10 units)">
+          Small Projects (up to 10 units)
+        </option>
+        <option value="Medium Projects (11-50 units)">
+          Medium Projects (11-50 units)
+        </option>
+        <option value="Large Projects (more than 50)">
+          Large Projects (more than 50)
+        </option>
+      </select>
 
-   
-      <button className="w-full !bg-[#2F6FAD] !text-white py-3 rounded-full text-sm font-semibold hover:bg-[#255a8d] transition">
-        Request A Quote
+      <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
+        Your Email <span className="text-red-500">*</span>
+      </label>
+      <input
+        type="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        className="w-full mb-6 bg-[#eef3f8] rounded-md px-4 py-3 text-sm focus:outline-none"
+        placeholder="Your Email"
+      />
+
+      {message && (
+        <p
+          className={`mb-4 text-center ${
+            message.includes("Failed") ? "text-red-500" : "text-green-500"
+          }`}
+        >
+          {message}
+        </p>
+      )}
+
+      <button
+        onClick={handleSubmit}
+        disabled={loading}
+        className={`w-full !bg-[#2F6FAD] !text-white py-3 rounded-full text-sm font-semibold transition ${
+          loading ? "opacity-50 cursor-not-allowed" : "hover:bg-[#255a8d]"
+        }`}
+      >
+        {loading ? "Sending..." : "Request A Quote"}
       </button>
-    
     </div>
   );
 };
+
 export default Pricing;
