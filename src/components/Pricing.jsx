@@ -515,10 +515,7 @@ const sendQuote = async (payload, setMessage, setLoading, resetFields) => {
   setLoading(true);
   setMessage("");
   try {
-    const res = await axios.post(
-  "https://pa-backend-f7w6.onrender.com/api/sendQuote",
-  payload
-);
+   const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/sendQuote`, payload);
 
     setMessage(res.data.message || "Email sent successfully!");
     resetFields();
