@@ -1,4 +1,5 @@
 import React from "react";
+import logo from "../images/logo.webp";
 import { AiOutlinePhone, AiOutlineMail } from "react-icons/ai";
 import { Link } from "react-router-dom"; 
 
@@ -6,7 +7,7 @@ const Footer = () => {
   return (
     <footer className="w-full bg-[#f7f9fb] text-[#1f2937] mt-32">
       <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-3 gap-12">
-        
+
         {/* About Company */}
         <div>
           <h3 className="text-[16px] font-semibold mb-6">About Company</h3>
@@ -22,33 +23,12 @@ const Footer = () => {
         <div>
           <h3 className="text-[16px] font-semibold mb-6">Our Company</h3>
           <ul className="space-y-3 text-[14px] text-gray-700">
-  <li>
-    <Link to="/services" className="hover:text-orange-500 transition">
-      Our Services
-    </Link>
-  </li>
-  <li>
-    <Link to="/experts" className="hover:text-orange-500 transition">
-      Our Experts
-    </Link>
-  </li>
-  <li>
-    <Link to="/insights" className="hover:text-orange-500 transition">
-      Company Insights
-    </Link>
-  </li>
-  <li>
-    <Link to="/contact" className="hover:text-orange-500 transition">
-      Contact Us
-    </Link>
-  </li>
-  <li>
-    <Link to="/careers" className="hover:text-orange-500 transition">
-      Careers
-    </Link>
-  </li>
-</ul>
-
+            <li><Link to="/services" className="hover:text-orange-500 transition">Our Services</Link></li>
+            <li><Link to="/experts" className="hover:text-orange-500 transition">Our Experts</Link></li>
+            <li><Link to="/insights" className="hover:text-orange-500 transition">Company Insights</Link></li>
+            <li><Link to="/contact" className="hover:text-orange-500 transition">Contact Us</Link></li>
+            <li><Link to="/careers" className="hover:text-orange-500 transition">Careers</Link></li>
+          </ul>
         </div>
 
         {/* Contact Info */}
@@ -75,7 +55,11 @@ const Footer = () => {
 
       {/* Bottom Section */}
       <div className="border-t border-gray-300 py-10 text-center">
-        <img src="/path/to/logo.png" className="mx-auto mb-4 h-14" alt="logo" />
+        <img
+          src={logo}
+          alt="PA Engineering Logo"
+          className="mx-auto mb-4 h-14 md:h-16 w-auto"
+        />
         <p className="text-[14px] text-gray-600">
           © 2025 PA Engineering. All rights reserved
         </p>
@@ -85,3 +69,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

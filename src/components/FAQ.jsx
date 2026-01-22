@@ -78,7 +78,7 @@
 
 import { useEffect, useState } from "react";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
-import api from "../api/axios"; // <-- use your axios instance
+import api from "../api/axios"; 
 
 const FAQ = () => {
   const [faqs, setFaqs] = useState([]);
@@ -115,7 +115,7 @@ const FAQ = () => {
         Frequently Asked Questions
       </h2>
 
-      {faqs.map((faq) => (
+      {faqs?.map((faq) => (
         <FAQItem key={faq._id} question={faq.question} answer={faq.answer} />
       ))}
     </div>
