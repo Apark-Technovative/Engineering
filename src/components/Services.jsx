@@ -115,8 +115,7 @@ const Services = () => {
         setServices(serviceData);
       } catch (error) {
         console.error("Error fetching services", error);
-        setServices([]); // ✅ prevent crash
-      } finally {
+        setServices([]); 
         setLoading(false);
       }
     };
