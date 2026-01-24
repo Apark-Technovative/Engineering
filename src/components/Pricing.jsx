@@ -1,12 +1,11 @@
-
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
 const BLUE = "#2F6FAD";
 
 const Pricing = () => {
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [activeTab, setActiveTab] = useState("banking");
 
   useEffect(() => {
@@ -26,30 +25,35 @@ const Pricing = () => {
           value="banking"
           activeTab={activeTab}
           setActiveTab={setActiveTab}
+          setSearchParams={setSearchParams}
         />
         <Tab
           label="Embassy/Consulate Uses"
           value="embassy"
           activeTab={activeTab}
           setActiveTab={setActiveTab}
+          setSearchParams={setSearchParams}
         />
         <Tab
           label="Individuals (Except Banking Purposes)"
           value="individual"
           activeTab={activeTab}
           setActiveTab={setActiveTab}
+          setSearchParams={setSearchParams}
         />
         <Tab
           label="Corporate Houses"
           value="corporate"
           activeTab={activeTab}
           setActiveTab={setActiveTab}
+          setSearchParams={setSearchParams}
         />
         <Tab
           label="Big Projects"
           value="big-projects"
           activeTab={activeTab}
           setActiveTab={setActiveTab}
+          setSearchParams={setSearchParams}
         />
       </div>
 
@@ -82,19 +86,40 @@ const Pricing = () => {
   );
 };
 
-const Tab = ({ label, value, activeTab, setActiveTab }) => (
+// const Tab = ({ label, value, activeTab, setActiveTab }) => (
+//   <button
+//     onClick={() => setActiveTab(value)}
+//     className={`px-6 py-3 rounded-full text-sm font-medium transition
+//       ${
+//         activeTab === value
+//           ? "!bg-[#2F6FAD] !text-white"
+//           : "bg-white text-[#1f2d3d]"
+//       }`}
+//   >
+//     {label}
+//   </button>
+// );
+
+const Tab = ({ label, value, activeTab, setActiveTab, setSearchParams }) => (
   <button
-    onClick={() => setActiveTab(value)}
+    onClick={() => {
+      setActiveTab(value);
+      setSearchParams({ tab: value });
+    }}
     className={`px-6 py-3 rounded-full text-sm font-medium transition
+      cursor-pointer
       ${
         activeTab === value
           ? "!bg-[#2F6FAD] !text-white"
-          : "bg-white text-[#1f2d3d]"
-      }`}
+          : "bg-white text-[#1f2d3d] hover:bg-[#eaf1f9]"
+      }
+      active:scale-95
+    `}
   >
     {label}
   </button>
 );
+
 
 const sendQuote = async (payload, setMessage, setLoading, resetFields) => {
   if (!payload.email) {
@@ -209,13 +234,28 @@ const EmbassyPricingCard = () => {
     setEmail("");
   };
 
-const handleSubmit = () => {
+
+  const handleSubmit = () => {
+  let price = "";
+
+  if (type === "Properties for Foreign Studies, Visas or Foreign Court Decisions") {
+    price = "NPR 5,000";
+  }
+
+  if (packageType === "Standard") {
+    price += " + Standard Package (NPR 2,000)";
+  }
+
+  if (packageType === "Detailed") {
+    price += " + Detailed Package (NPR 4,000)";
+  }
+
   sendQuote(
     {
       title: "Embassy/Consulate Uses",
       type1: type,
       type2: packageType,
-      price: "",
+      price,
       email,
     },
     setMessage,
@@ -223,8 +263,6 @@ const handleSubmit = () => {
     resetFields
   );
 };
-
-
   return (
     <div className="bg-white rounded-xl shadow-md w-full max-w-md p-10">
       <h2 className="text-xl font-bold text-center mb-8 text-[#1f2d3d]">
@@ -242,9 +280,6 @@ const handleSubmit = () => {
         <option value="">Select an option</option>
         <option value="Properties for Foreign Studies, Visas or Foreign Court Decisions">
           Properties for Foreign Studies, Visas or Foreign Court Decisions
-        </option>
-        <option value="Embassy / Consulate Purpose">
-          Embassy / Consulate Purpose
         </option>
       </select>
 
@@ -295,87 +330,6 @@ const handleSubmit = () => {
   );
 };
 
-// const IndividualPricingCard = () => {
-//   const [valuationType, setValuationType] = useState("");
-//   const [email, setEmail] = useState("");
-//   const [loading, setLoading] = useState(false);
-//   const [message, setMessage] = useState("");
-
-//   const resetFields = () => {
-//     setValuationType("");
-//     setEmail("");
-//   };
-
-//  const handleSubmit = () => {
-//   sendQuote(
-//     {
-//       title: "Individuals (Except Banking Purposes)",
-//       type1: valuationType,
-//       type2: "",
-//       price: "",
-//       email,
-//     },
-//     setMessage,
-//     setLoading,
-//     resetFields
-//   );
-// };
-
-
-//   return (
-//     <div className="bg-white rounded-xl shadow-md w-full max-w-md p-10">
-//       <h2 className="text-xl font-bold text-center mb-8 text-[#1f2d3d]">
-//         Individuals (Except Banking Purposes)
-//       </h2>
-
-//       <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
-//         Select Valuation Type <span className="text-red-500">*</span>
-//       </label>
-//       <select
-//         value={valuationType}
-//         onChange={(e) => setValuationType(e.target.value)}
-//         className="w-full mb-10 bg-white border border-[#d6e1ec] rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#2F6FAD]"
-//       >
-//         <option value="">Select an option</option>
-//         <option value="Residential Property Valuation">
-//           Residential Property Valuation
-//         </option>
-//         <option value="Land Valuation">Land Valuation</option>
-//       </select>
-
-//       <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
-//         Your Email <span className="text-red-500">*</span>
-//       </label>
-//       <input
-//         type="email"
-//         value={email}
-//         onChange={(e) => setEmail(e.target.value)}
-//         className="w-full mb-6 bg-[#eef3f8] rounded-md px-4 py-3 text-sm focus:outline-none"
-//         placeholder="Your Email"
-//       />
-
-//       {message && (
-//         <p
-//           className={`mb-4 text-center ${
-//             message.includes("Failed") ? "text-red-500" : "text-green-500"
-//           }`}
-//         >
-//           {message}
-//         </p>
-//       )}
-
-//       <button
-//         onClick={handleSubmit}
-//         disabled={loading}
-//         className={`w-full !bg-[#2F6FAD] !text-white py-3 rounded-full text-sm font-semibold transition ${
-//           loading ? "opacity-50 cursor-not-allowed" : "hover:bg-[#255a8d]"
-//         }`}
-//       >
-//         {loading ? "Sending..." : "Request A Quote"}
-//       </button>
-//     </div>
-//   );
-// };
 
 
 const IndividualPricingCard = () => {
@@ -392,19 +346,38 @@ const IndividualPricingCard = () => {
   };
 
   const handleSubmit = () => {
-    sendQuote(
-      {
-        title: "Individuals (Except Banking Purposes)",
-        type1: valuationType,
-        type2: subType,
-        price: "",
-        email,
-      },
-      setMessage,
-      setLoading,
-      resetFields
-    );
-  };
+  let price = "";
+
+  if (subType === "Standard Residential Property") {
+    price = "NPR 6,000";
+  }
+
+  if (subType === "Luxury Residential Property") {
+    price = "NPR 10,000";
+  }
+
+  if (subType === "Small Plots (up to 500 sq. meters)") {
+    price = "NPR 5,000";
+  }
+
+  if (subType === "Large Plots (over 500 sq. meters)") {
+    price = "NPR 8,000";
+  }
+
+  sendQuote(
+    {
+      title: "Individuals (Except Banking Purposes)",
+      type1: valuationType,
+      type2: subType,
+      price,
+      email,
+    },
+    setMessage,
+    setLoading,
+    resetFields
+  );
+};
+
 
   return (
     <div className="bg-white rounded-xl shadow-md w-full max-w-md p-10">
@@ -510,86 +483,7 @@ const IndividualPricingCard = () => {
   );
 };
 
-// const CorporateHouse = () => {
-//   const [valuationType, setValuationType] = useState("");
-//   const [email, setEmail] = useState("");
-//   const [loading, setLoading] = useState(false);
-//   const [message, setMessage] = useState("");
 
-//   const resetFields = () => {
-//     setValuationType("");
-//     setEmail("");
-//   };
-
-//   const handleSubmit = () => {
-//     sendQuote(
-//       {
-//         title: "Corporate Houses",
-//         valuationType,
-//         email,
-//       },
-//       setMessage,
-//       setLoading,
-//       resetFields
-//     );
-//   };
-
-//   return (
-//     <div className="bg-white rounded-xl shadow-md w-full max-w-md p-10">
-//       <h2 className="text-xl font-bold text-center mb-8 text-[#1f2d3d]">
-//         Corporate Houses
-//       </h2>
-
-//       <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
-//         Select Valuation Type <span className="text-red-500">*</span>
-//       </label>
-//       <select
-//         value={valuationType}
-//         onChange={(e) => setValuationType(e.target.value)}
-//         className="w-full mb-10 bg-white border border-[#d6e1ec] rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#2F6FAD]"
-//       >
-//         <option value="">Select an option</option>
-//         <option value="Commercial Property Valuation">
-//           Commercial Property Valuation
-//         </option>
-//         <option value="Industry Property Valuation">
-//           Industry Property Valuation
-//         </option>
-//       </select>
-
-//       <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
-//         Your Email <span className="text-red-500">*</span>
-//       </label>
-//       <input
-//         type="email"
-//         value={email}
-//         onChange={(e) => setEmail(e.target.value)}
-//         className="w-full mb-6 bg-[#eef3f8] rounded-md px-4 py-3 text-sm focus:outline-none"
-//         placeholder="Your Email"
-//       />
-
-//       {message && (
-//         <p
-//           className={`mb-4 text-center ${
-//             message.includes("Failed") ? "text-red-500" : "text-green-500"
-//           }`}
-//         >
-//           {message}
-//         </p>
-//       )}
-
-//       <button
-//         onClick={handleSubmit}
-//         disabled={loading}
-//         className={`w-full !bg-[#2F6FAD] !text-white py-3 rounded-full text-sm font-semibold transition ${
-//           loading ? "opacity-50 cursor-not-allowed" : "hover:bg-[#255a8d]"
-//         }`}
-//       >
-//         {loading ? "Sending..." : "Request A Quote"}
-//       </button>
-//     </div>
-//   );
-// };
 const CorporateHouse = () => {
   const [valuationType, setValuationType] = useState("");
   const [subType, setSubType] = useState("");
@@ -603,20 +497,39 @@ const CorporateHouse = () => {
     setEmail("");
   };
 
+
   const handleSubmit = () => {
-    sendQuote(
-      {
-        title: "Corporate Houses",
-        type1: valuationType,
-        type2: subType,
-        price: "",
-        email,
-      },
-      setMessage,
-      setLoading,
-      resetFields
-    );
-  };
+  let price = "";
+
+  if (subType === "Small Offices/Retail Spaces") {
+    price = "NPR 15,000";
+  }
+
+  if (subType === "Large Offices/Commercial Complexes") {
+    price = "NPR 25,000";
+  }
+
+  if (subType === "Small Industrial Units") {
+    price = "NPR 30,000";
+  }
+
+  if (subType === "Large Industrial Units") {
+    price = "NPR 50,000";
+  }
+
+  sendQuote(
+    {
+      title: "Corporate Houses",
+      type1: valuationType,
+      type2: subType,
+      price,
+      email,
+    },
+    setMessage,
+    setLoading,
+    resetFields
+  );
+};
 
   return (
     <div className="bg-white rounded-xl shadow-md w-full max-w-md p-10">
@@ -728,13 +641,28 @@ const BigProjects = () => {
     setEmail("");
   };
 
- const handleSubmit = () => {
+
+const handleSubmit = () => {
+  let price = "";
+
+  if (projectSize === "Small Projects (up to 10 units)") {
+    price = "NPR 50,000";
+  }
+
+  if (projectSize === "Medium Projects (11-50 units)") {
+    price = "NPR 1,00,000";
+  }
+
+  if (projectSize === "Large Projects (more than 50)") {
+    price = "NPR 2,00,000";
+  }
+
   sendQuote(
     {
       title: "Big Projects",
       type1: valuationType,
       type2: projectSize,
-      price: "",
+      price,
       email,
     },
     setMessage,
