@@ -236,6 +236,10 @@ const EmbassyPricingCard = () => {
 
 
   const handleSubmit = () => {
+     if (!type || !packageType || !email) {
+    setMessage("Please fill all fields!");
+    return;
+  }
   let price = "";
 
   if (type === "Properties for Foreign Studies, Visas or Foreign Court Decisions") {
@@ -243,11 +247,11 @@ const EmbassyPricingCard = () => {
   }
 
   if (packageType === "Standard") {
-    price += " + Standard Package (NPR 2,000)";
+    price = "NPR 2,000";
   }
 
   if (packageType === "Detailed") {
-    price += " + Detailed Package (NPR 4,000)";
+    price = "NPR 4,000";
   }
 
   sendQuote(
@@ -255,7 +259,7 @@ const EmbassyPricingCard = () => {
       title: "Embassy/Consulate Uses",
       type1: type,
       type2: packageType,
-      price,
+      price: price,
       email,
     },
     setMessage,
@@ -735,11 +739,13 @@ const handleSubmit = () => {
       )}
 
       <button
+      
         onClick={handleSubmit}
         disabled={loading}
-        className={`w-full !bg-[#2F6FAD] !text-white py-3 rounded-full text-sm font-semibold transition ${
-          loading ? "opacity-50 cursor-not-allowed" : "hover:bg-[#255a8d]"
-        }`}
+        className={`w-full !bg-[#2F6FAD] !text-white py-3 rounded-full text-sm font-semibold transition cursor-pointer ${
+  loading ? "opacity-50 cursor-allowed" : "hover:bg-[#255a8d]"
+}`}
+
       >
         {loading ? "Sending..." : "Request A Quote"}
       </button>
