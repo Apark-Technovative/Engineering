@@ -30,7 +30,21 @@ const Experts = () => {
           </p>
 
           <p className="text-sm text-gray-700 leading-7 text-justify">
-            Mr. Sachin Bhattarai is a distinguished Real Estate Appraiser, Researcher and Consultant since May 2018 in Nepal and internationally. He is licensed as a Civil Engineer by the Nepal Engineering Council and an Insurance Surveyor by the Nepal Insurance Authority. He is currently pursuing a PhD at Sharda University, India, focusing on global real estate valuation practices and trends. As the Executive Chairman and Founder of Kripa Engineering Associates Pvt. Ltd., based in Kathmandu, Nepal, Mr. Bhattarai has led numerous high-impact projects, strengthened key client relationships and played a pivotal role in driving the company’s sustained growth. His expertise is also sought after as a part-time consultant for various organizations, reflecting his adaptability and industry-wide recognition. His leadership is further demonstrated through his roles as a Central Executive Committee Member of the Nepal Valuers Association and as the first Individual Member from Nepal in the FIABCI Singapore Chapter. Recently, he has presented his research at the Global Property Congress 2025 in Sydney, Australia.
+            Mr. Sachin Bhattarai is a distinguished Real Estate Appraiser,
+            Researcher and Consultant since May 2018 in Nepal and internationally. 
+            He is licensed as a Civil Engineer by the Nepal Engineering Council 
+            and an Insurance Surveyor by the Nepal Insurance Authority. He 
+            is currently pursuing a PhD at Sharda University, India, focusing on global real 
+            estate valuation practices and trends. As the Executive Chairman and Founder of
+            Kripa Engineering Associates Pvt. Ltd., based in Kathmandu, Nepal, Mr. Bhattarai
+            has led numerous high-impact projects, strengthened key client relationships and
+            played a pivotal role in driving the company’s sustained growth. His expertise
+            is also sought after as a part-time consultant for various organizations,
+            reflecting his adaptability and industry-wide recognition. His leadership is 
+            further demonstrated through his roles as a Central Executive Committee Member
+            of the Nepal Valuers Association and as the first Individual Member from Nepal
+            in the FIABCI Singapore Chapter. Recently, he has presented his research at the
+            Global Property Congress 2025 in Sydney, Australia.
           </p>
 
           <a
