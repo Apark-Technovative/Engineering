@@ -102,7 +102,10 @@ export default function Careers() {
                   Job Description
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
-                  {career.description}
+                  {/* {career.description} */}
+                  <div className="prose max-w-none"
+  dangerouslySetInnerHTML={{ __html: career.description }}
+/>
                 </p>
               </div>
             </div>

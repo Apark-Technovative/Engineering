@@ -1,4 +1,6 @@
-import React, { useEffect } from "react";
+
+
+import React, { useEffect, useState } from "react";
 import sachin from "../images/sachin.png";
 import expert1 from "../images/expert1.png";
 import expert2 from "../images/expert2.png";
@@ -13,6 +15,7 @@ const Experts = () => {
   return (
     <div className="bg-white">
       
+      {/* MAIN EXPERT */}
       <section className="max-w-7xl mx-auto px-6 py-20 grid grid-cols-1 md:grid-cols-2 gap-12">
         <img
           src={sachin}
@@ -57,7 +60,7 @@ const Experts = () => {
         </div>
       </section>
 
- 
+      {/* OTHER EXPERTS */}
       <section className="bg-[#f7f9fb] py-20">
         <h2 className="text-3xl font-semibold text-center mb-16">
           Our Experts
@@ -90,45 +93,119 @@ const Experts = () => {
   );
 };
 
-const ExpertCard = ({ image, name, title, description }) => {
-  const [expanded, setExpanded] = React.useState(false);
+/* ================= MODAL ================= */
+
+const ExpertModal = ({ expert, onClose }) => {
+  useEffect(() => {
+    const handleEsc = (e) => e.key === "Escape" && onClose();
+    window.addEventListener("keydown", handleEsc);
+    return () => window.removeEventListener("keydown", handleEsc);
+  }, [onClose]);
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-sm flex flex-col">
-      <img
-        src={image}
-        alt={name}
-        className="w-full h-[350px] object-cover rounded-md mb-6"
-      />
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4">
+      
+      {/* White outer frame */}
+      <div className="bg-white p-3 rounded-3xl shadow-2xl">
+        
+        {/* Inner modal */}
+        <div className="relative bg-white w-full max-w-3xl rounded-2xl overflow-hidden">
+          
+          {/* Close button */}
+          <button
+            onClick={onClose}
+            className="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-xl cursor-pointer"
+          >
+            ✕
+          </button>
 
-      <h3 className="text-lg font-semibold mb-1">{name}</h3>
-      <p className="text-sm text-gray-600 mb-3">{title}</p>
+          <div className="grid grid-cols-1 md:grid-cols-2">
+            
+            {/* Image */}
+            <div className="h-[360px] md:h-auto">
+              <img
+                src={expert.image}
+                alt={expert.name}
+                className="w-full h-full object-cover"
+              />
+            </div>
 
-      <p
-        className={`text-sm text-gray-700 leading-6 text-justify transition-all ${
-          expanded ? "" : "line-clamp-6"
-        }`}
-      >
-        {description}
-      </p>
+            {/* Content */}
+            <div className="p-6 md:p-8 flex flex-col justify-center">
+              <h3 className="text-xl font-semibold mb-1">
+                {expert.name}
+              </h3>
 
-      <button
-        onClick={() => setExpanded(!expanded)}
-        className="text-blue-600 text-sm font-medium mt-2 self-start hover:underline"
-      >
-        {expanded ? "Show less" : "Read more"}
-      </button>
+              <p className="text-sm text-gray-500 mb-4">
+                {expert.title}
+              </p>
 
-      <a
-        href="#"
-        className="inline-flex items-center gap-2 text-blue-600 text-sm mt-auto pt-4"
-      >
-        <FaLinkedin className="w-5 h-5" />
-        LinkedIn
-      </a>
+              <p className="text-sm text-gray-700 leading-6 text-justify">
+                {expert.description}
+              </p>
+
+              <a
+                href="#"
+                className="inline-flex items-center gap-2 mt-5 text-blue-600 text-sm font-medium cursor-pointer"
+              >
+                <FaLinkedin className="w-5 h-5" />
+                Connect on LinkedIn
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
 
+
+
+/* ================= CARD ================= */
+
+const ExpertCard = ({ image, name, title, description }) => {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <>
+      <div className="bg-white p-6 rounded-lg shadow-sm flex flex-col">
+        <img
+          src={image}
+          alt={name}
+          className="w-full h-[350px] object-cover rounded-md mb-6"
+        />
+
+        <h3 className="text-lg font-semibold mb-1">{name}</h3>
+        <p className="text-sm text-gray-600 mb-3">{title}</p>
+
+        <p className="text-sm text-gray-700 leading-6 line-clamp-6 text-justify">
+          {description}
+        </p>
+
+        <button
+          onClick={() => setOpen(true)}
+          className="text-blue-600 text-sm font-medium mt-2 self-start hover:underline cursor-pointer"
+        >
+          Read more
+        </button>
+
+        <a
+          href="#"
+          className="inline-flex items-center gap-2 text-blue-600 text-sm mt-auto pt-4"
+        >
+          <FaLinkedin className="w-5 h-5" />
+          LinkedIn
+        </a>
+      </div>
+
+      {open && (
+        <ExpertModal
+          expert={{ image, name, title, description }}
+          onClose={() => setOpen(false)}
+        />
+      )}
+    </>
+  );
+};
 
 export default Experts;

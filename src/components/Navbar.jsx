@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
-import logo from "../images/logo.webp";
+// import logo from "../images/logo.webp";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -9,9 +9,12 @@ const Navbar = () => {
     <nav className="w-full border-b border-gray-200 relative bg-white">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-16 py-5 flex items-center justify-between">
         {/* Logo */}
-        <NavLink to="/" className="flex items-center gap-2">
-          <img src={logo} alt="KEA Logo" className="h-20 w-auto" />
-        </NavLink>
+<NavLink to="/" className="flex items-center gap-2">
+  <p className="text-xl font-bold text-blue-600 tracking-wide">
+    PEA 
+  </p>
+</NavLink>
+
 
         {/* Desktop Nav */}
         <ul className="hidden lg:flex items-center gap-8 text-[14px] font-medium">
@@ -34,7 +37,7 @@ const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <button
-          className="lg:hidden p-2 rounded-md hover:bg-gray-100 transition"
+          className="lg:hidden p-2 rounded-md hover:bg-gray-100 transition cursor-pointer"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -73,7 +76,7 @@ const Navbar = () => {
           <NavLink
             to="/get-quote"
             onClick={() => setOpen(false)}
-            className="mt-4 text-[14px] font-semibold px-6 py-2 text-white text-center"
+            className="mt-4 text-[14px] font-semibold px-6 py-2 text-white text-center cursor-pointer"
             style={{ backgroundColor: "#3b54adff", borderRadius: "7px" }}
           >
             Get A Quote

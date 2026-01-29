@@ -36,19 +36,17 @@ const Footer = () => {
           <h3 className="text-[16px] font-semibold mb-6">Contact Info</h3>
           <p className="text-[14px] font-semibold mb-2">Corporate Office Address</p>
           <p className="text-[14px] leading-6 text-gray-700 mb-4">
-            Venkatesh Marg, House No. 74,
-            <br />
-            Battisputali, Kathmandu
+            Sorakhutte-16, Kathmandu
           </p>
 
-          <div className="flex gap-3 items-center text-[14px] text-gray-700 mb-3">
+          <div className="flex gap-3 items-center text-[14px] text-gray-700 mb-3 cursor-pointer">
             <AiOutlinePhone className="w-5 h-5 text-gray-600" />
-            <span>+977-9851156669 / +977-9860288368</span>
+            <span>+977-9860123220</span>
           </div>
 
-          <div className="flex gap-3 items-center text-[14px] text-gray-700">
+          <div className="flex gap-3 items-center text-[14px] text-gray-700 cursor-pointer">
             <AiOutlineMail className="w-5 h-5 text-gray-600" />
-            <span>info@paengineering.com.np</span>
+            <span>paengineering009@gmail.com</span>
           </div>
         </div>
       </div>

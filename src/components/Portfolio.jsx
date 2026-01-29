@@ -16,7 +16,7 @@ const Portfolio = () => {
           
           <div className="bg-white w-full sm:w-[360px] p-6 rounded-lg shadow-md flex items-center justify-between">
             <div>
-              <h3 className="text-[20px] font-normal text-[#111827]">4,000+</h3>
+              <h3 className="text-[20px] font-normal text-[#111827]">1,000+</h3>
               <p className="text-[14px] font-normal text-[#111827] mt-1">
                 Valuation Projects Completed
               </p>
@@ -38,9 +38,19 @@ const Portfolio = () => {
           
           <div className="bg-white w-full sm:w-[360px] p-6 rounded-lg shadow-md flex items-center justify-between">
             <div>
-              <h3 className="text-[20px] font-normal text-[#111827]">7+</h3>
+              <h3 className="text-[20px] font-normal text-[#111827]">3+</h3>
               <p className="text-[14px] font-normal text-[#111827] mt-1">
-                Years in Service
+                Servicing since 2022
+              </p>
+            </div>
+            <FiBriefcase size={36} className="text-[#111827]" />
+          </div>
+
+          <div className="bg-white w-full sm:w-[360px] p-6 rounded-lg shadow-md flex items-center justify-between">
+            <div>
+              <h3 className="text-[20px] font-normal text-[#111827]">3+</h3>
+              <p className="text-[14px] font-normal text-[#111827] mt-1">
+                Operatin Across Nepal
               </p>
             </div>
             <FiBriefcase size={36} className="text-[#111827]" />

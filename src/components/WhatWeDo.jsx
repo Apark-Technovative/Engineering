@@ -94,6 +94,63 @@ const WhatWeDo = () => {
         </div>
       </section>
 
+      {/* CORE SERVICES SECTION */}
+<section className="bg-gray-50 py-20">
+  <div className="max-w-6xl mx-auto px-4 text-center">
+    <h2 className="text-3xl font-bold mb-4">Our Core Services</h2>
+
+    <p className="text-gray-600 max-w-2xl mx-auto mb-14">
+      We provide professional valuation and advisory services aligned with
+      international standards and local market expertise.
+    </p>
+
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {/* Service 1 */}
+      <div className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition">
+        <div className="w-14 h-14 flex items-center justify-center rounded-full bg-indigo-50 mb-6 mx-auto">
+          <Database className="w-7 h-7 text-indigo-600" />
+        </div>
+        <h3 className="font-semibold text-lg mb-3">
+          Property & Asset Valuation
+        </h3>
+        <p className="text-sm text-gray-600">
+          Independent and accurate valuation of real estate and assets
+          in accordance with International Valuation Standards (IVS).
+        </p>
+      </div>
+
+      {/* Service 2 */}
+      <div className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition">
+        <div className="w-14 h-14 flex items-center justify-center rounded-full bg-indigo-50 mb-6 mx-auto">
+          <BarChart2 className="w-7 h-7 text-indigo-600" />
+        </div>
+        <h3 className="font-semibold text-lg mb-3">
+          Property Advisory & Market Research
+        </h3>
+        <p className="text-sm text-gray-600">
+          Strategic advisory services supported by in-depth market research,
+          feasibility studies, and investment analysis.
+        </p>
+      </div>
+
+      {/* Service 3 */}
+      <div className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition">
+        <div className="w-14 h-14 flex items-center justify-center rounded-full bg-indigo-50 mb-6 mx-auto">
+          <Target className="w-7 h-7 text-indigo-600" />
+        </div>
+        <h3 className="font-semibold text-lg mb-3">
+          Infrastructure & Development Project Consulting
+        </h3>
+        <p className="text-sm text-gray-600">
+          Consulting services for infrastructure and development projects,
+          from planning and feasibility to execution support.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
       {/* AFFILIATIONS SECTION */}
       <section className="bg-gray-100 py-16">
         <div className="max-w-6xl mx-auto px-4 text-center">

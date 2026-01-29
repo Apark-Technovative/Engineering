@@ -1,6 +1,6 @@
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../api/axios";
 
 const BLUE = "#2F6FAD";
 
@@ -129,7 +129,7 @@ const sendQuote = async (payload, setMessage, setLoading, resetFields) => {
   setLoading(true);
   setMessage("");
   try {
-   const res = await axios.post(`${import.meta.env.VITE_API_URL}/sendQuote`, payload);
+   const res = await api.post("/sendQuote", payload);
 
     setMessage(res.data.message || "Email sent successfully!");
     resetFields();
@@ -159,8 +159,7 @@ const BankingPricingCard = () => {
     {
       title: "Banking Mortgage Loans in Nepal",
       type1: "Fair Market Value",
-      type2: fairMarketValue,
-      price: "", // optional
+      price: fairMarketValue,
       email,
     },
     setMessage,

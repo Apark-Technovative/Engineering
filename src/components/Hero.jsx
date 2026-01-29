@@ -50,17 +50,10 @@ const Hero = () => {
             Globally Aligned
           </h2>
 
-          <p className="mt-6 text-[15px] leading-7 text-gray-600">
-            PA Engineering, established in May 2018, is a leading
-            multidisciplinary firm in Nepal specializing in Real Estate Appraisal,
-            Property Consultancy, Insurance Survey and Loss Assessment. Built on
-            a foundation of integrity, professionalism and precision, the firm
-            operates with a clear mission to deliver credible, transparent and
-            internationally aligned valuation and consulting services across Nepal
-            and abroad. KEA follows the International Valuation Standards (IVS) and
-            adheres to the guidelines of the Nepal Insurance Authority (NIA) and
-            Nepal Valuers Association (NVA) to ensure professional, ethical and
-            high-quality deliverables in every assignment.
+          <p className="mt-6 text-[15px] leading-7 text-gray-600 text-justify">
+            The P.A. Engineering Company, established in 2022, is a premier consultancy specializing in property and real estate valuation across Nepal. Founded by a trio of visionary engineers, the company is committed to upholding the highest standards in engineering and fixed asset valuation. Our expertise spans land and property valuation, building and structure appraisal, equipment assessment, property consultancy, and comprehensive real estate appraisals.
+            Guided by the International Valuation Standards (IVS) and the Nepal Valuers Association (NVA) guidelines, we deliver professional, ethical, and high-quality results. We build enduring client relationships by consistently exceeding expectations and earning trust through exceptional performance.
+
           </p>
         </div>
       </div>
