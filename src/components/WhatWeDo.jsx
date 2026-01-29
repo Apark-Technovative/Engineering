@@ -152,7 +152,7 @@ const WhatWeDo = () => {
 
 
       {/* AFFILIATIONS SECTION */}
-      <section className="bg-gray-100 py-16">
+      {/* <section className="bg-gray-100 py-16">
         <div className="max-w-6xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">Our Affiliations</h2>
 
@@ -182,7 +182,7 @@ const WhatWeDo = () => {
 </div>
 
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };

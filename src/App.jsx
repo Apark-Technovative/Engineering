@@ -11,7 +11,7 @@ import Footer from "./components/Footer";
 import FAQ from "./components/FAQ";
 import CompanyInsights from "./components/CompanyInsights";
 import Contact from "./components/Contact";
-import Client from "./components/Clients";
+// import Client from "./components/Clients";
 import Careers from "./components/Careers";
 import ScrollToTop from "./components/ScrollToTop";
 import GetQuote from "./components/GetQuote";
@@ -23,7 +23,7 @@ const Home = () => {
       <Hero />
       <Portfolio />
       <WhatWeDo />
-      <Client />
+      {/* <Client /> */}
       <FAQ />
     </>
   );
