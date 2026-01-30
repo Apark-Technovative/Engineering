@@ -73,7 +73,7 @@ export default function Contact() {
               <div>
                 <p className="text-gray-600">Phone / WhatsApp</p>
                 <p className="font-semibold">
-                  +977-9851156669 / +977-9860288368
+                  +977-9860123220
                 </p>
               </div>
             </div>
@@ -83,7 +83,7 @@ export default function Contact() {
               <div>
                 <p className="text-gray-600">Office Address</p>
                 <p className="font-semibold">
-                  Venkatesh Marg, Battisputali, Kathmandu
+                 Sorakhutte-16, Kathmandu
                 </p>
               </div>
             </div>
@@ -93,7 +93,7 @@ export default function Contact() {
               <div>
                 <p className="text-gray-600">Email</p>
                 <p className="font-semibold">
-                  info@paengineering.com.np
+                  paengineering009@gmail.com
                 </p>
               </div>
             </div>
@@ -199,7 +199,7 @@ export default function Contact() {
       </div>
 
 
-      <div className="max-w-7xl mx-auto px-6 mt-16">
+      {/* <div className="max-w-7xl mx-auto px-6 mt-16">
         <h3 className="text-2xl font-bold mb-4">Find Us on Map</h3>
         <div className="w-full h-[350px] rounded-xl overflow-hidden shadow-md">
           <iframe
@@ -209,7 +209,7 @@ export default function Contact() {
             loading="lazy"
           ></iframe>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

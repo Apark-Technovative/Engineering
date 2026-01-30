@@ -1,4 +1,6 @@
-import { useSearchParams, useNavigate } from "react-router-dom";
+
+
+import { useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import api from "../api/axios";
 
@@ -14,91 +16,84 @@ const Pricing = () => {
   }, [searchParams]);
 
   return (
-    <div className="min-h-screen bg-[#f3f8fc] py-24 px-4">
+    <div className="min-h-screen bg-[#f3f8fc] py-24 px-6">
       <h1 className="text-4xl font-bold text-center mb-12 text-[#1f2d3d]">
         Pricing
       </h1>
 
-      <div className="flex justify-center flex-wrap gap-4 mb-14">
-        <Tab
-          label="Banking Mortgage Loans in Nepal"
-          value="banking"
-          activeTab={activeTab}
-          setActiveTab={setActiveTab}
-          setSearchParams={setSearchParams}
-        />
-        <Tab
-          label="Embassy/Consulate Uses"
-          value="embassy"
-          activeTab={activeTab}
-          setActiveTab={setActiveTab}
-          setSearchParams={setSearchParams}
-        />
-        <Tab
-          label="Individuals (Except Banking Purposes)"
-          value="individual"
-          activeTab={activeTab}
-          setActiveTab={setActiveTab}
-          setSearchParams={setSearchParams}
-        />
-        <Tab
-          label="Corporate Houses"
-          value="corporate"
-          activeTab={activeTab}
-          setActiveTab={setActiveTab}
-          setSearchParams={setSearchParams}
-        />
-        <Tab
-          label="Big Projects"
-          value="big-projects"
-          activeTab={activeTab}
-          setActiveTab={setActiveTab}
-          setSearchParams={setSearchParams}
-        />
-      </div>
+      <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-8">
+        <div className="flex flex-col gap-4 w-full lg:w-1/4">
+          <Tab
+            label="Banking Mortgage Loans in Nepal"
+            value="banking"
+            activeTab={activeTab}
+            setActiveTab={setActiveTab}
+            setSearchParams={setSearchParams}
+          />
+          <Tab
+            label="Embassy/Consulate Uses"
+            value="embassy"
+            activeTab={activeTab}
+            setActiveTab={setActiveTab}
+            setSearchParams={setSearchParams}
+          />
+          <Tab
+            label="Individuals (Except Banking Purposes)"
+            value="individual"
+            activeTab={activeTab}
+            setActiveTab={setActiveTab}
+            setSearchParams={setSearchParams}
+          />
+          <Tab
+            label="Corporate Houses"
+            value="corporate"
+            activeTab={activeTab}
+            setActiveTab={setActiveTab}
+            setSearchParams={setSearchParams}
+          />
+          <Tab
+            label="Big Projects"
+            value="big-projects"
+            activeTab={activeTab}
+            setActiveTab={setActiveTab}
+            setSearchParams={setSearchParams}
+          />
+        </div>
 
-      <div className="flex justify-center">
-        {activeTab === "banking" && <BankingPricingCard />}
-        {activeTab === "embassy" && <EmbassyPricingCard />}
-        {activeTab === "individual" && <IndividualPricingCard />}
-        {activeTab === "corporate" && <CorporateHouse />}
-        {activeTab === "big-projects" && <BigProjects />}
-      </div>
+        
+        <div className="w-full lg:w-4/4 flex flex-row gap-10">
+          <div className="w-2/3">
+            {activeTab === "banking" && <BankingPricingCard />}
+            {activeTab === "embassy" && <EmbassyPricingCard />}
+            {activeTab === "individual" && <IndividualPricingCard />}
+            {activeTab === "corporate" && <CorporateHouse />}
+            {activeTab === "big-projects" && <BigProjects />}
+          </div>
 
-      <div className="max-w-4xl mx-auto mt-16 text-sm text-[#1f2d3d]">
-        <p className="font-semibold mb-2">Note:</p>
-        <ul className="list-disc pl-6 space-y-2">
-          <li>
-            The fees are indicative and can vary based on specific client
-            requirements, property complexity, location and other factors.
-          </li>
-          <li>
-            Additional charges may apply for travel, detailed reports and any
-            extra services requested by the client.
-          </li>
-          <li>13% VAT is additional applied in all mentioned fees.</li>
-        </ul>
-        <p className="italic mt-4">
-          For an accurate quote, it's recommended to contact us directly.
-        </p>
+          
+          <div className="w-1/3 bg-white p-6 rounded-xl shadow-md text-sm text-[#1f2d3d] flex flex-col justify-start">
+            <p className="font-semibold mb-2">Note:</p>
+            <ul className="list-disc pl-6 space-y-2">
+              <li>
+                The fees are indicative and can vary based on specific client
+                requirements, property complexity, location and other factors.
+              </li>
+              <li>
+                Additional charges may apply for travel, detailed reports and any
+                extra services requested by the client.
+              </li>
+              <li>13% VAT is additional applied in all mentioned fees.</li>
+            </ul>
+            <p className="italic mt-4">
+              For an accurate quote, it's recommended to contact us directly.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );
 };
 
-// const Tab = ({ label, value, activeTab, setActiveTab }) => (
-//   <button
-//     onClick={() => setActiveTab(value)}
-//     className={`px-6 py-3 rounded-full text-sm font-medium transition
-//       ${
-//         activeTab === value
-//           ? "!bg-[#2F6FAD] !text-white"
-//           : "bg-white text-[#1f2d3d]"
-//       }`}
-//   >
-//     {label}
-//   </button>
-// );
 
 const Tab = ({ label, value, activeTab, setActiveTab, setSearchParams }) => (
   <button
@@ -106,15 +101,15 @@ const Tab = ({ label, value, activeTab, setActiveTab, setSearchParams }) => (
       setActiveTab(value);
       setSearchParams({ tab: value });
     }}
-    className={`px-6 py-3 rounded-full text-sm font-medium transition
+    className={`w-full px-6 py-3 rounded-full text-left text-sm font-medium transition
       cursor-pointer
       ${
         activeTab === value
-          ? "!bg-[#2F6FAD] !text-white"
+          ? "bg-[#2F6FAD] text-white"
           : "bg-white text-[#1f2d3d] hover:bg-[#eaf1f9]"
       }
       active:scale-95
-    `}
+      `}
   >
     {label}
   </button>
@@ -129,8 +124,7 @@ const sendQuote = async (payload, setMessage, setLoading, resetFields) => {
   setLoading(true);
   setMessage("");
   try {
-   const res = await api.post("/sendQuote", payload);
-
+    const res = await api.post("/sendQuote", payload);
     setMessage(res.data.message || "Email sent successfully!");
     resetFields();
   } catch (err) {
@@ -154,24 +148,23 @@ const BankingPricingCard = () => {
     setEmail("");
   };
 
- const handleSubmit = () => {
-  sendQuote(
-    {
-      title: "Banking Mortgage Loans in Nepal",
-      type1: "Fair Market Value",
-      price: fairMarketValue,
-      email,
-    },
-    setMessage,
-    setLoading,
-    resetFields
-  );
-};
-
+  const handleSubmit = () => {
+    sendQuote(
+      {
+        title: "Banking Mortgage Loans in Nepal",
+        type1: "Fair Market Value",
+        price: fairMarketValue,
+        email,
+      },
+      setMessage,
+      setLoading,
+      resetFields
+    );
+  };
 
   return (
-    <div className="bg-white rounded-xl shadow-md w-full max-w-md p-10">
-      <h2 className="text-xl font-bold text-center mb-8 text-[#1f2d3d]">
+    <div className="bg-white rounded-xl shadow-md w-full p-8">
+      <h2 className="text-xl font-bold text-center mb-6 text-[#1f2d3d]">
         Banking Mortgage Loans in Nepal
       </h2>
 
@@ -182,7 +175,7 @@ const BankingPricingCard = () => {
         type="number"
         value={fairMarketValue}
         onChange={(e) => setFairMarketValue(e.target.value)}
-        className="w-full mb-6 bg-[#eef3f8] rounded-md px-4 py-3 text-sm focus:outline-none"
+        className="w-full mb-4 bg-[#eef3f8] rounded-md px-4 py-3 text-sm focus:outline-none"
         placeholder="Enter Fair Market Value"
       />
 
@@ -193,7 +186,7 @@ const BankingPricingCard = () => {
         type="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        className="w-full mb-6 bg-[#eef3f8] rounded-md px-4 py-3 text-sm focus:outline-none"
+        className="w-full mb-4 bg-[#eef3f8] rounded-md px-4 py-3 text-sm focus:outline-none"
         placeholder="Your Email"
       />
 
@@ -210,7 +203,7 @@ const BankingPricingCard = () => {
       <button
         onClick={handleSubmit}
         disabled={loading}
-        className={`w-full !bg-[#2F6FAD] !text-white py-3 rounded-full text-sm font-semibold transition ${
+        className={`w-full bg-[#2F6FAD] text-white py-3 rounded-full text-sm font-semibold transition ${
           loading ? "opacity-50 cursor-not-allowed" : "hover:bg-[#255a8d]"
         }`}
       >
@@ -233,42 +226,33 @@ const EmbassyPricingCard = () => {
     setEmail("");
   };
 
-
   const handleSubmit = () => {
-     if (!type || !packageType || !email) {
-    setMessage("Please fill all fields!");
-    return;
-  }
-  let price = "";
+    if (!type || !packageType || !email) {
+      setMessage("Please fill all fields!");
+      return;
+    }
+    let price = "";
+    if (type === "Properties for Foreign Studies, Visas or Foreign Court Decisions") {
+      price = packageType === "Standard" ? "NPR 2,000" : "NPR 4,000";
+    }
 
-  if (type === "Properties for Foreign Studies, Visas or Foreign Court Decisions") {
-    price = "NPR 5,000";
-  }
+    sendQuote(
+      {
+        title: "Embassy/Consulate Uses",
+        type1: type,
+        type2: packageType,
+        price,
+        email,
+      },
+      setMessage,
+      setLoading,
+      resetFields
+    );
+  };
 
-  if (packageType === "Standard") {
-    price = "NPR 2,000";
-  }
-
-  if (packageType === "Detailed") {
-    price = "NPR 4,000";
-  }
-
-  sendQuote(
-    {
-      title: "Embassy/Consulate Uses",
-      type1: type,
-      type2: packageType,
-      price: price,
-      email,
-    },
-    setMessage,
-    setLoading,
-    resetFields
-  );
-};
   return (
-    <div className="bg-white rounded-xl shadow-md w-full max-w-md p-10">
-      <h2 className="text-xl font-bold text-center mb-8 text-[#1f2d3d]">
+    <div className="bg-white rounded-xl shadow-md w-full p-8">
+      <h2 className="text-xl font-bold text-center mb-6 text-[#1f2d3d]">
         Embassy/Consulate Uses
       </h2>
 
@@ -278,7 +262,7 @@ const EmbassyPricingCard = () => {
       <select
         value={type}
         onChange={(e) => setType(e.target.value)}
-        className="w-full mb-6 bg-[#eef3f8] rounded-md px-4 py-3 text-sm focus:outline-none"
+        className="w-full mb-4 bg-[#eef3f8] rounded-md px-4 py-3 text-sm focus:outline-none"
       >
         <option value="">Select an option</option>
         <option value="Properties for Foreign Studies, Visas or Foreign Court Decisions">
@@ -292,7 +276,7 @@ const EmbassyPricingCard = () => {
       <select
         value={packageType}
         onChange={(e) => setPackageType(e.target.value)}
-        className="w-full mb-6 bg-[#eef3f8] rounded-md px-4 py-3 text-sm focus:outline-none"
+        className="w-full mb-4 bg-[#eef3f8] rounded-md px-4 py-3 text-sm focus:outline-none"
       >
         <option value="">Select a package</option>
         <option value="Standard">Standard</option>
@@ -306,7 +290,7 @@ const EmbassyPricingCard = () => {
         type="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        className="w-full mb-6 bg-[#eef3f8] rounded-md px-4 py-3 text-sm focus:outline-none"
+        className="w-full mb-4 bg-[#eef3f8] rounded-md px-4 py-3 text-sm focus:outline-none"
         placeholder="Your Email"
       />
 
@@ -323,7 +307,7 @@ const EmbassyPricingCard = () => {
       <button
         onClick={handleSubmit}
         disabled={loading}
-        className={`w-full !bg-[#2F6FAD] !text-white py-3 rounded-full text-sm font-semibold transition ${
+        className={`w-full bg-[#2F6FAD] text-white py-3 rounded-full text-sm font-semibold transition ${
           loading ? "opacity-50 cursor-not-allowed" : "hover:bg-[#255a8d]"
         }`}
       >
@@ -333,11 +317,9 @@ const EmbassyPricingCard = () => {
   );
 };
 
-
-
 const IndividualPricingCard = () => {
   const [valuationType, setValuationType] = useState("");
-  const [subType, setSubType] = useState(""); // package OR land size
+  const [subType, setSubType] = useState("");
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
@@ -349,46 +331,32 @@ const IndividualPricingCard = () => {
   };
 
   const handleSubmit = () => {
-  let price = "";
+    let price = "";
+    if (subType === "Standard Residential Property") price = "NPR 6,000";
+    if (subType === "Luxury Residential Property") price = "NPR 10,000";
+    if (subType === "Small Plots (up to 500 sq. meters)") price = "NPR 5,000";
+    if (subType === "Large Plots (over 500 sq. meters)") price = "NPR 8,000";
 
-  if (subType === "Standard Residential Property") {
-    price = "NPR 6,000";
-  }
-
-  if (subType === "Luxury Residential Property") {
-    price = "NPR 10,000";
-  }
-
-  if (subType === "Small Plots (up to 500 sq. meters)") {
-    price = "NPR 5,000";
-  }
-
-  if (subType === "Large Plots (over 500 sq. meters)") {
-    price = "NPR 8,000";
-  }
-
-  sendQuote(
-    {
-      title: "Individuals (Except Banking Purposes)",
-      type1: valuationType,
-      type2: subType,
-      price,
-      email,
-    },
-    setMessage,
-    setLoading,
-    resetFields
-  );
-};
-
+    sendQuote(
+      {
+        title: "Individuals (Except Banking Purposes)",
+        type1: valuationType,
+        type2: subType,
+        price,
+        email,
+      },
+      setMessage,
+      setLoading,
+      resetFields
+    );
+  };
 
   return (
-    <div className="bg-white rounded-xl shadow-md w-full max-w-md p-10">
-      <h2 className="text-xl font-bold text-center mb-8 text-[#1f2d3d]">
+    <div className="bg-white rounded-xl shadow-md w-full p-8">
+      <h2 className="text-xl font-bold text-center mb-6 text-[#1f2d3d]">
         Individuals (Except Banking Purposes)
       </h2>
 
-      {/* Valuation Type */}
       <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
         Select Valuation Type <span className="text-red-500">*</span>
       </label>
@@ -396,9 +364,9 @@ const IndividualPricingCard = () => {
         value={valuationType}
         onChange={(e) => {
           setValuationType(e.target.value);
-          setSubType(""); // reset dependent field
+          setSubType("");
         }}
-        className="w-full mb-6 bg-white border border-[#d6e1ec] rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#2F6FAD]"
+        className="w-full mb-4 bg-white border border-[#d6e1ec] rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#2F6FAD]"
       >
         <option value="">Select an option</option>
         <option value="Residential Property Valuation">
@@ -407,7 +375,6 @@ const IndividualPricingCard = () => {
         <option value="Land Valuation">Land Valuation</option>
       </select>
 
-      {/* Residential Options */}
       {valuationType === "Residential Property Valuation" && (
         <>
           <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
@@ -416,7 +383,7 @@ const IndividualPricingCard = () => {
           <select
             value={subType}
             onChange={(e) => setSubType(e.target.value)}
-            className="w-full mb-6 bg-[#eef3f8] rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#2F6FAD]"
+            className="w-full mb-4 bg-[#eef3f8] rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#2F6FAD]"
           >
             <option value="">Select package</option>
             <option value="Standard Residential Property">
@@ -429,7 +396,6 @@ const IndividualPricingCard = () => {
         </>
       )}
 
-      {/* Land Options */}
       {valuationType === "Land Valuation" && (
         <>
           <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
@@ -438,7 +404,7 @@ const IndividualPricingCard = () => {
           <select
             value={subType}
             onChange={(e) => setSubType(e.target.value)}
-            className="w-full mb-6 bg-[#eef3f8] rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#2F6FAD]"
+            className="w-full mb-4 bg-[#eef3f8] rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#2F6FAD]"
           >
             <option value="">Select land size</option>
             <option value="Small Plots (up to 500 sq. meters)">
@@ -451,7 +417,6 @@ const IndividualPricingCard = () => {
         </>
       )}
 
-      {/* Email */}
       <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
         Your Email <span className="text-red-500">*</span>
       </label>
@@ -459,7 +424,7 @@ const IndividualPricingCard = () => {
         type="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        className="w-full mb-6 bg-[#eef3f8] rounded-md px-4 py-3 text-sm focus:outline-none"
+        className="w-full mb-4 bg-[#eef3f8] rounded-md px-4 py-3 text-sm focus:outline-none"
         placeholder="Your Email"
       />
 
@@ -476,7 +441,7 @@ const IndividualPricingCard = () => {
       <button
         onClick={handleSubmit}
         disabled={loading}
-        className={`w-full !bg-[#2F6FAD] !text-white py-3 rounded-full text-sm font-semibold transition ${
+        className={`w-full bg-[#2F6FAD] text-white py-3 rounded-full text-sm font-semibold transition ${
           loading ? "opacity-50 cursor-not-allowed" : "hover:bg-[#255a8d]"
         }`}
       >
@@ -485,7 +450,6 @@ const IndividualPricingCard = () => {
     </div>
   );
 };
-
 
 const CorporateHouse = () => {
   const [valuationType, setValuationType] = useState("");
@@ -500,48 +464,41 @@ const CorporateHouse = () => {
     setEmail("");
   };
 
-
   const handleSubmit = () => {
-  let price = "";
+    if (!valuationType || !subType || !email) {
+      setMessage("Please fill all fields!");
+      return;
+    }
 
-  if (subType === "Small Offices/Retail Spaces") {
-    price = "NPR 15,000";
-  }
+    let price = "";
 
-  if (subType === "Large Offices/Commercial Complexes") {
-    price = "NPR 25,000";
-  }
+    if (subType === "Small Offices/Retail Spaces") price = "NPR 15,000";
+    if (subType === "Large Offices/Commercial Complexes") price = "NPR 25,000";
+    if (subType === "Small Industrial Units") price = "NPR 30,000";
+    if (subType === "Large Industrial Units") price = "NPR 50,000";
 
-  if (subType === "Small Industrial Units") {
-    price = "NPR 30,000";
-  }
-
-  if (subType === "Large Industrial Units") {
-    price = "NPR 50,000";
-  }
-
-  sendQuote(
-    {
-      title: "Corporate Houses",
-      type1: valuationType,
-      type2: subType,
-      price,
-      email,
-    },
-    setMessage,
-    setLoading,
-    resetFields
-  );
-};
+    sendQuote(
+      {
+        title: "Corporate Houses",
+        type1: valuationType,
+        type2: subType,
+        price,
+        email,
+      },
+      setMessage,
+      setLoading,
+      resetFields
+    );
+  };
 
   return (
-    <div className="bg-white rounded-xl shadow-md w-full max-w-md p-10">
-      <h2 className="text-xl font-bold text-center mb-8">
-        Corporate Houses
-      </h2>
+    <div className="bg-white rounded-xl shadow-md w-full p-8">
+    <h2 className="text-xl font-bold text-center mb-6 text-[#1f2d3d]">
+      Corporate Houses
+    </h2>
 
-      {/* Valuation Type */}
-      <label className="block text-sm font-medium mb-2">
+     
+      <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
         Select Valuation Type <span className="text-red-500">*</span>
       </label>
       <select
@@ -550,7 +507,7 @@ const CorporateHouse = () => {
           setValuationType(e.target.value);
           setSubType("");
         }}
-        className="w-full mb-6 bg-[#eef3f8] rounded-md px-4 py-3"
+        className="w-full mb-6 bg-white border border-[#d6e1ec] rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#2F6FAD]"
       >
         <option value="">Select an option</option>
         <option value="Commercial Property Valuation">
@@ -561,16 +518,16 @@ const CorporateHouse = () => {
         </option>
       </select>
 
-      {/* Commercial */}
+    
       {valuationType === "Commercial Property Valuation" && (
         <>
-          <label className="block text-sm font-medium mb-2">
+          <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
             Property Type <span className="text-red-500">*</span>
           </label>
           <select
             value={subType}
             onChange={(e) => setSubType(e.target.value)}
-            className="w-full mb-6 bg-[#eef3f8] rounded-md px-4 py-3"
+            className="w-full mb-6 bg-white border border-[#d6e1ec] rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#2F6FAD]"
           >
             <option value="">Select Property Type</option>
             <option value="Small Offices/Retail Spaces">
@@ -583,52 +540,58 @@ const CorporateHouse = () => {
         </>
       )}
 
-      {/* Industrial */}
+    
       {valuationType === "Industrial Property Valuation" && (
         <>
-          <label className="block text-sm font-medium mb-2">
+          <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
             Select Industry Type <span className="text-red-500">*</span>
           </label>
           <select
             value={subType}
             onChange={(e) => setSubType(e.target.value)}
-            className="w-full mb-6 bg-[#eef3f8] rounded-md px-4 py-3"
+            className="w-full mb-6 bg-white border border-[#d6e1ec] rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#2F6FAD]"
           >
             <option value="">Select Industry Type</option>
-            <option value="Small Industrial Units">
-              Small Industrial Units
-            </option>
-            <option value="Large Industrial Units">
-              Large Industrial Units
-            </option>
+            <option value="Small Industrial Units">Small Industrial Units</option>
+            <option value="Large Industrial Units">Large Industrial Units</option>
           </select>
         </>
       )}
 
       {/* Email */}
-      <label className="block text-sm font-medium mb-2">
+      <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
         Your Email <span className="text-red-500">*</span>
       </label>
       <input
         type="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        className="w-full mb-6 bg-[#eef3f8] rounded-md px-4 py-3"
+        className="w-full mb-6 bg-[#eef3f8] rounded-md px-4 py-3 text-sm focus:outline-none"
+        placeholder="Your Email"
       />
 
-      {message && <p className="mb-4 text-center">{message}</p>}
+      {message && (
+        <p
+          className={`mb-6 text-center ${
+            message.includes("Failed") ? "text-red-500" : "text-green-500"
+          }`}
+        >
+          {message}
+        </p>
+      )}
 
       <button
         onClick={handleSubmit}
         disabled={loading}
-        className="w-full bg-[#2F6FAD] text-white py-3 rounded-full"
+        className={`w-full bg-[#2F6FAD] text-white py-3 rounded-full text-sm font-semibold transition ${
+          loading ? "opacity-50 cursor-not-allowed" : "hover:bg-[#255a8d]"
+        }`}
       >
         {loading ? "Sending..." : "Request A Quote"}
       </button>
     </div>
   );
 };
-
 
 
 const BigProjects = () => {
@@ -644,42 +607,41 @@ const BigProjects = () => {
     setEmail("");
   };
 
+  const handleSubmit = () => {
+    if (!valuationType || !projectSize || !email) {
+      setMessage("Please fill all fields!");
+      return;
+    }
 
-const handleSubmit = () => {
-  let price = "";
+    let price = "";
 
-  if (projectSize === "Small Projects (up to 10 units)") {
-    price = "NPR 50,000";
-  }
+    if (projectSize === "Small Projects (up to 10 units)") {
+      price = "NPR 50,000";
+    } else if (projectSize === "Medium Projects (11-50 units)") {
+      price = "NPR 1,00,000";
+    } else if (projectSize === "Large Projects (more than 50)") {
+      price = "NPR 2,00,000";
+    }
 
-  if (projectSize === "Medium Projects (11-50 units)") {
-    price = "NPR 1,00,000";
-  }
-
-  if (projectSize === "Large Projects (more than 50)") {
-    price = "NPR 2,00,000";
-  }
-
-  sendQuote(
-    {
-      title: "Big Projects",
-      type1: valuationType,
-      type2: projectSize,
-      price,
-      email,
-    },
-    setMessage,
-    setLoading,
-    resetFields
-  );
-};
-
+    sendQuote(
+      {
+        title: "Big Projects",
+        type1: valuationType,
+        type2: projectSize,
+        price,
+        email,
+      },
+      setMessage,
+      setLoading,
+      resetFields
+    );
+  };
 
   return (
-    <div className="bg-white rounded-xl shadow-md w-full max-w-md p-10">
-      <h2 className="text-xl font-bold text-center mb-8 text-[#1f2d3d]">
-        Big Projects
-      </h2>
+    <div className="bg-white rounded-xl shadow-md w-full p-8">
+    <h2 className="text-xl font-bold text-center mb-6 text-[#1f2d3d]">
+      Big Projects
+    </h2>
 
       <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
         Select Valuation Type <span className="text-red-500">*</span>
@@ -729,7 +691,7 @@ const handleSubmit = () => {
 
       {message && (
         <p
-          className={`mb-4 text-center ${
+          className={`mb-6 text-center ${
             message.includes("Failed") ? "text-red-500" : "text-green-500"
           }`}
         >
@@ -738,18 +700,17 @@ const handleSubmit = () => {
       )}
 
       <button
-      
         onClick={handleSubmit}
         disabled={loading}
-        className={`w-full !bg-[#2F6FAD] !text-white py-3 rounded-full text-sm font-semibold transition cursor-pointer ${
-  loading ? "opacity-50 cursor-allowed" : "hover:bg-[#255a8d]"
-}`}
-
+        className={`w-full bg-[#2F6FAD] text-white py-3 rounded-full text-sm font-semibold transition ${
+          loading ? "opacity-50 cursor-not-allowed" : "hover:bg-[#255a8d]"
+        }`}
       >
         {loading ? "Sending..." : "Request A Quote"}
       </button>
     </div>
   );
 };
+
 
 export default Pricing;

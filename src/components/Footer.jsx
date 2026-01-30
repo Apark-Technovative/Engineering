@@ -12,7 +12,7 @@ const Footer = () => {
         <div>
           <h3 className="text-[16px] font-semibold mb-6">About Company</h3>
           <p className="text-[14px] leading-7 text-gray-700">
-            PA Engineering, established in May 2018, is a
+            P.A.Engineering, established in May 2018, is a
             reputable name in property appraisal, surveying, and property consultancy.
             Dedicated to excellence and delivering quality services, it has earned a
             commendable reputation in the industry.
@@ -25,7 +25,6 @@ const Footer = () => {
           <ul className="space-y-3 text-[14px] text-gray-700">
             <li><Link to="/services" className="hover:text-orange-500 transition">Our Services</Link></li>
             <li><Link to="/experts" className="hover:text-orange-500 transition">Our Experts</Link></li>
-            <li><Link to="/insights" className="hover:text-orange-500 transition">Company Insights</Link></li>
             <li><Link to="/contact" className="hover:text-orange-500 transition">Contact Us</Link></li>
             <li><Link to="/careers" className="hover:text-orange-500 transition">Careers</Link></li>
           </ul>
@@ -53,13 +52,14 @@ const Footer = () => {
 
       {/* Bottom Section */}
       <div className="border-t border-gray-300 py-10 text-center">
-        <img
+        {/* <img
           src={logo}
           alt="PA Engineering Logo"
           className="mx-auto mb-4 h-14 md:h-16 w-auto"
-        />
+        /> */}
+        
         <p className="text-[14px] text-gray-600">
-          © 2025 PA Engineering. All rights reserved
+          © 2025 P.A Engineering. All rights reserved
         </p>
       </div>
     </footer>

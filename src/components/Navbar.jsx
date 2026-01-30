@@ -11,7 +11,7 @@ const Navbar = () => {
         {/* Logo */}
 <NavLink to="/" className="flex items-center gap-2">
   <p className="text-xl font-bold text-blue-600 tracking-wide">
-    PEA 
+    P.A.Enginnering
   </p>
 </NavLink>
 
@@ -21,9 +21,9 @@ const Navbar = () => {
           <NavItem to="/" label="Home" />
           <NavItem to="/services" label="Our Services" />
           <NavItem to="/experts" label="Our Experts" />
-          <NavItem to="/insights" label="Company Insights" />
-          <NavItem to="/contact" label="Contact Us" />
           <NavItem to="/careers" label="Careers" />
+          <NavItem to="/contact" label="Contact Us" />
+          
         </ul>
 
         {/* Desktop Get A Quote */}
