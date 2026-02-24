@@ -18,7 +18,7 @@ const Experts = () => {
   const fetchExperts = async () => {
     try {
       setLoading(true);
-      const res = await api.get("/team");
+      const res = await api.get("/getAllteam");
 
       
       if (Array.isArray(res.data?.data)) {
