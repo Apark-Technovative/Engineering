@@ -1,5 +1,3 @@
-
-
 import { useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import api from "../api/axios";
@@ -22,7 +20,7 @@ const Pricing = () => {
       </h1>
 
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-8">
-        <div className="flex flex-col gap-4 w-full lg:w-1/4">
+        <div className="flex flex-col gap-4 w-full lg:w-3/6">
           <Tab
             label="Banking Mortgage Loans in Nepal"
             value="banking"
@@ -60,7 +58,6 @@ const Pricing = () => {
           />
         </div>
 
-        
         <div className="w-full lg:w-4/4 flex flex-row gap-10">
           <div className="w-2/3">
             {activeTab === "banking" && <BankingPricingCard />}
@@ -70,8 +67,7 @@ const Pricing = () => {
             {activeTab === "big-projects" && <BigProjects />}
           </div>
 
-          
-          <div className="w-1/3 bg-white p-6 rounded-xl shadow-md text-sm text-[#1f2d3d] flex flex-col justify-start">
+          <div className="w-2/3 bg-white p-6 rounded-xl shadow-md text-sm text-[#1f2d3d] flex flex-col justify-start">
             <p className="font-semibold mb-2">Note:</p>
             <ul className="list-disc pl-6 space-y-2">
               <li>
@@ -79,8 +75,8 @@ const Pricing = () => {
                 requirements, property complexity, location and other factors.
               </li>
               <li>
-                Additional charges may apply for travel, detailed reports and any
-                extra services requested by the client.
+                Additional charges may apply for travel, detailed reports and
+                any extra services requested by the client.
               </li>
               <li>13% VAT is additional applied in all mentioned fees.</li>
             </ul>
@@ -94,14 +90,13 @@ const Pricing = () => {
   );
 };
 
-
 const Tab = ({ label, value, activeTab, setActiveTab, setSearchParams }) => (
   <button
     onClick={() => {
       setActiveTab(value);
       setSearchParams({ tab: value });
     }}
-    className={`w-full px-6 py-3 rounded-full text-left text-sm font-medium transition
+    className={`w-full px-6 py-4 rounded-full text-left text-sm font-medium transition
       cursor-pointer
       ${
         activeTab === value
@@ -114,7 +109,6 @@ const Tab = ({ label, value, activeTab, setActiveTab, setSearchParams }) => (
     {label}
   </button>
 );
-
 
 const sendQuote = async (payload, setMessage, setLoading, resetFields) => {
   if (!payload.email) {
@@ -134,8 +128,6 @@ const sendQuote = async (payload, setMessage, setLoading, resetFields) => {
     setLoading(false);
   }
 };
-
-
 
 const BankingPricingCard = () => {
   const [fairMarketValue, setFairMarketValue] = useState("");
@@ -158,7 +150,7 @@ const BankingPricingCard = () => {
       },
       setMessage,
       setLoading,
-      resetFields
+      resetFields,
     );
   };
 
@@ -232,7 +224,10 @@ const EmbassyPricingCard = () => {
       return;
     }
     let price = "";
-    if (type === "Properties for Foreign Studies, Visas or Foreign Court Decisions") {
+    if (
+      type ===
+      "Properties for Foreign Studies, Visas or Foreign Court Decisions"
+    ) {
       price = packageType === "Standard" ? "NPR 2,000" : "NPR 4,000";
     }
 
@@ -246,7 +241,7 @@ const EmbassyPricingCard = () => {
       },
       setMessage,
       setLoading,
-      resetFields
+      resetFields,
     );
   };
 
@@ -347,7 +342,7 @@ const IndividualPricingCard = () => {
       },
       setMessage,
       setLoading,
-      resetFields
+      resetFields,
     );
   };
 
@@ -487,17 +482,16 @@ const CorporateHouse = () => {
       },
       setMessage,
       setLoading,
-      resetFields
+      resetFields,
     );
   };
 
   return (
     <div className="bg-white rounded-xl shadow-md w-full p-8">
-    <h2 className="text-xl font-bold text-center mb-6 text-[#1f2d3d]">
-      Corporate Houses
-    </h2>
+      <h2 className="text-xl font-bold text-center mb-6 text-[#1f2d3d]">
+        Corporate Houses
+      </h2>
 
-     
       <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
         Select Valuation Type <span className="text-red-500">*</span>
       </label>
@@ -518,7 +512,6 @@ const CorporateHouse = () => {
         </option>
       </select>
 
-    
       {valuationType === "Commercial Property Valuation" && (
         <>
           <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
@@ -540,7 +533,6 @@ const CorporateHouse = () => {
         </>
       )}
 
-    
       {valuationType === "Industrial Property Valuation" && (
         <>
           <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
@@ -552,8 +544,12 @@ const CorporateHouse = () => {
             className="w-full mb-6 bg-white border border-[#d6e1ec] rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#2F6FAD]"
           >
             <option value="">Select Industry Type</option>
-            <option value="Small Industrial Units">Small Industrial Units</option>
-            <option value="Large Industrial Units">Large Industrial Units</option>
+            <option value="Small Industrial Units">
+              Small Industrial Units
+            </option>
+            <option value="Large Industrial Units">
+              Large Industrial Units
+            </option>
           </select>
         </>
       )}
@@ -592,7 +588,6 @@ const CorporateHouse = () => {
     </div>
   );
 };
-
 
 const BigProjects = () => {
   const [valuationType, setValuationType] = useState("");
@@ -633,15 +628,15 @@ const BigProjects = () => {
       },
       setMessage,
       setLoading,
-      resetFields
+      resetFields,
     );
   };
 
   return (
     <div className="bg-white rounded-xl shadow-md w-full p-8">
-    <h2 className="text-xl font-bold text-center mb-6 text-[#1f2d3d]">
-      Big Projects
-    </h2>
+      <h2 className="text-xl font-bold text-center mb-6 text-[#1f2d3d]">
+        Big Projects
+      </h2>
 
       <label className="block text-sm font-medium mb-2 text-[#1f2d3d]">
         Select Valuation Type <span className="text-red-500">*</span>
@@ -711,6 +706,5 @@ const BigProjects = () => {
     </div>
   );
 };
-
 
 export default Pricing;

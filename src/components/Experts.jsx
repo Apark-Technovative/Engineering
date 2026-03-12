@@ -1,26 +1,24 @@
-
 import React, { useEffect, useState } from "react";
 import { FaLinkedin } from "react-icons/fa";
 import api from "../api/axios";
+import { AdvancedImage } from "@cloudinary/react";
+import cloudinary from "../utils/cloudinary";
 
 const Experts = () => {
   const [experts, setExperts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-
   useEffect(() => {
     document.title = "Experts";
     fetchExperts();
   }, []);
 
- 
   const fetchExperts = async () => {
     try {
       setLoading(true);
       const res = await api.get("/getAllteam");
 
-      
       if (Array.isArray(res.data?.data)) {
         setExperts(res.data.data);
       } else {
@@ -33,11 +31,11 @@ const Experts = () => {
     }
   };
 
-
   if (loading) {
-    return <p className="py-24 text-center text-gray-600">Loading experts...</p>;
+    return (
+      <p className="py-24 text-center text-gray-600">Loading experts...</p>
+    );
   }
-
 
   if (error) {
     return <p className="py-24 text-center text-red-500">{error}</p>;
@@ -45,9 +43,7 @@ const Experts = () => {
 
   return (
     <section className="bg-[#f7f9fb] py-20">
-      <h2 className="text-3xl font-semibold text-center mb-16">
-        Our Experts
-      </h2>
+      <h2 className="text-3xl font-semibold text-center mb-16">Our Experts</h2>
 
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10">
         {experts.length === 0 && (
@@ -68,18 +64,24 @@ const Experts = () => {
 const ExpertCard = ({ expert }) => {
   const [showModal, setShowModal] = useState(false);
 
-  const plainTextDescription =
-    expert.description?.replace(/<[^>]+>/g, "");
-
+  const plainTextDescription = expert.description?.replace(/<[^>]+>/g, "");
+  const cldImg =
+    expert.image?.length > 0
+      ? cloudinary.image(expert.image[0]).format("auto").quality("auto")
+      : null;
   return (
     <>
       <div className="bg-white p-6 rounded-lg shadow-sm flex flex-col">
-        <img
+        {/* <img
           src={expert.image?.[0]}
           alt={expert.name}
           className="w-full h-[350px] object-cover rounded-md mb-6"
+        /> */}
+        <AdvancedImage
+          cldImg={cldImg}
+          alt={expert.name}
+          className="w-full h-[350px] object-cover rounded-md mb-6"
         />
-
         <h3 className="text-lg font-semibold">{expert.name}</h3>
         <p className="text-sm text-gray-600 mb-3">{expert.position}</p>
 
@@ -106,10 +108,7 @@ const ExpertCard = ({ expert }) => {
       </div>
 
       {showModal && (
-        <ExpertModal
-          expert={expert}
-          closeModal={() => setShowModal(false)}
-        />
+        <ExpertModal expert={expert} closeModal={() => setShowModal(false)} />
       )}
     </>
   );
@@ -117,7 +116,6 @@ const ExpertCard = ({ expert }) => {
 
 /* ================= MODAL ================= */
 const ExpertModal = ({ expert, closeModal }) => {
-  
   useEffect(() => {
     const handleEsc = (e) => e.key === "Escape" && closeModal();
     window.addEventListener("keydown", handleEsc);
@@ -144,9 +142,7 @@ const ExpertModal = ({ expert, closeModal }) => {
 
             <div className="p-6 flex flex-col justify-center">
               <h3 className="text-xl font-semibold">{expert.name}</h3>
-              <p className="text-sm text-gray-500 mb-4">
-                {expert.position}
-              </p>
+              <p className="text-sm text-gray-500 mb-4">{expert.position}</p>
 
               <div
                 className="text-sm text-gray-700 leading-6 prose max-w-none"

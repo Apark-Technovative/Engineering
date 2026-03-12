@@ -61,20 +61,15 @@ export default function Contact() {
   return (
     <div className="bg-[#eef3f7] py-16">
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-14">
-     
         <div>
-          <h2 className="text-4xl font-bold text-gray-900 mb-10">
-            Contact Us
-          </h2>
+          <h2 className="text-4xl font-bold text-gray-900 mb-10">Contact Us</h2>
 
           <div className="space-y-8">
             <div className="flex gap-4">
               <FaPhoneAlt className="text-xl mt-1" />
               <div>
                 <p className="text-gray-600">Phone / WhatsApp</p>
-                <p className="font-semibold">
-                  +977-9860123220
-                </p>
+                <p className="font-semibold">+977-9860123220</p>
               </div>
             </div>
 
@@ -82,9 +77,7 @@ export default function Contact() {
               <FaMapMarkerAlt className="text-xl mt-1" />
               <div>
                 <p className="text-gray-600">Office Address</p>
-                <p className="font-semibold">
-                 Sorakhutte-16, Kathmandu
-                </p>
+                <p className="font-semibold">Sorakhutte-16, Kathmandu</p>
               </div>
             </div>
 
@@ -92,13 +85,11 @@ export default function Contact() {
               <FaEnvelope className="text-xl mt-1" />
               <div>
                 <p className="text-gray-600">Email</p>
-                <p className="font-semibold">
-                  paengineering009@gmail.com
-                </p>
+                <p className="font-semibold">paengineering009@gmail.com</p>
               </div>
             </div>
 
-            <div className="flex gap-4">
+            {/* <div className="flex gap-4">
               <FaFacebookF className="text-xl mt-1" />
               <div>
                 <p className="text-gray-600">Facebook</p>
@@ -109,7 +100,7 @@ export default function Contact() {
                   facebook.com/engineers.paengineering
                 </a>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
 
@@ -197,7 +188,6 @@ export default function Contact() {
           </form>
         </div>
       </div>
-
 
       {/* <div className="max-w-7xl mx-auto px-6 mt-16">
         <h3 className="text-2xl font-bold mb-4">Find Us on Map</h3>

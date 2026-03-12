@@ -24,23 +24,7 @@ const GetQuote = () => {
             <div
               key={item.value}
               onClick={() => navigate(`/pricing?tab=${item.value}`)}
-              className="
-                bg-white
-                h-[76px]
-                px-8
-                flex
-                items-center
-                rounded-2xl
-                border
-                border-gray-200
-                text-[18px]
-                font-semibold
-                text-gray-900
-                shadow-sm
-                hover:shadow-md
-                transition
-                cursor-pointer
-              "
+              className="bg-white h-[76px] px-8 flex items-center rounded-2xl border border-gray-200 text-[18px] font-semibold text-gray-900 shadow-sm hover:shadow-md transition cursor-pointer"
             >
               {item.label}
             </div>

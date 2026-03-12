@@ -6,15 +6,14 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="w-full border-b border-gray-200 relative bg-white">
+    <nav className="w-full shadow-md relative bg-white">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-16 py-5 flex items-center justify-between">
         {/* Logo */}
-<NavLink to="/" className="flex items-center gap-2">
-  <p className="text-xl font-bold text-blue-600 tracking-wide">
-    P.A.Enginnering
-  </p>
-</NavLink>
-
+        <NavLink to="/" className="flex items-center gap-2">
+          <p className="text-xl font-bold text-blue-600 tracking-wide">
+            P.A.Enginnering
+          </p>
+        </NavLink>
 
         {/* Desktop Nav */}
         <ul className="hidden lg:flex items-center gap-8 text-[14px] font-medium">
@@ -23,7 +22,6 @@ const Navbar = () => {
           <NavItem to="/experts" label="Our Experts" />
           <NavItem to="/careers" label="Careers" />
           <NavItem to="/contact" label="Contact Us" />
-          
         </ul>
 
         {/* Desktop Get A Quote */}
@@ -66,10 +64,26 @@ const Navbar = () => {
       >
         <ul className="flex flex-col gap-4 px-6 py-4 text-[14px] font-medium">
           <NavItem to="/" label="Home" close={() => setOpen(false)} />
-          <NavItem to="/services" label="Our Services" close={() => setOpen(false)} />
-          <NavItem to="/experts" label="Our Experts" close={() => setOpen(false)} />
-          <NavItem to="/insights" label="Company Insights" close={() => setOpen(false)} />
-          <NavItem to="/contact" label="Contact Us" close={() => setOpen(false)} />
+          <NavItem
+            to="/services"
+            label="Our Services"
+            close={() => setOpen(false)}
+          />
+          <NavItem
+            to="/experts"
+            label="Our Experts"
+            close={() => setOpen(false)}
+          />
+          <NavItem
+            to="/insights"
+            label="Company Insights"
+            close={() => setOpen(false)}
+          />
+          <NavItem
+            to="/contact"
+            label="Contact Us"
+            close={() => setOpen(false)}
+          />
           <NavItem to="/careers" label="Careers" close={() => setOpen(false)} />
 
           {/* Mobile Get A Quote */}
