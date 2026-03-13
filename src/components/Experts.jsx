@@ -77,11 +77,13 @@ const ExpertCard = ({ expert }) => {
           alt={expert.name}
           className="w-full h-[350px] object-cover rounded-md mb-6"
         /> */}
-        <AdvancedImage
-          cldImg={cldImg}
-          alt={expert.name}
-          className="w-full h-[350px] object-cover rounded-md mb-6"
-        />
+        {cldImg && (
+          <AdvancedImage
+            cldImg={cldImg}
+            alt={expert.name}
+            className="w-full h-[350px] object-cover rounded-md mb-6"
+          />
+        )}
         <h3 className="text-lg font-semibold">{expert.name}</h3>
         <p className="text-sm text-gray-600 mb-3">{expert.position}</p>
 
@@ -96,7 +98,7 @@ const ExpertCard = ({ expert }) => {
           Read more
         </button>
 
-        <a
+        {/* <a
           href={expert.linkedinUrl || "#"}
           target="_blank"
           rel="noopener noreferrer"
@@ -104,7 +106,7 @@ const ExpertCard = ({ expert }) => {
         >
           <FaLinkedin className="w-5 h-5" />
           LinkedIn
-        </a>
+        </a> */}
       </div>
 
       {showModal && (
